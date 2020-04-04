@@ -1,0 +1,24 @@
+<form class="form" (submit)="add(userName.value); userName.value=''">
+    <div class="form-group">
+        <input #userName class="form-control" placeholder="User Name">
+    </div>
+    <input type="submit" value="SUBMIT" class="btn btn-success btn-lg btn-block">
+</form>
+
+<table class="table">
+    <tr *ngFor="let user of users">
+        <td class="text-left">
+            <a (click)="edit(user)">
+                <span *ngIf="user!==editUser">{{user.name}}</span>
+                <input *ngIf="user==editUser" [(ngModel)]="user.name" (blur)="update()" (keyup.enter)="update()">
+            </a>
+        </td>
+        <td class="text-right">
+            <button class="btn btn-danger" title="delete user" (click)="delete(user)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<div class="card card-body bg-light text-center">
+    <span class="small">click on the item to edit</span>
+</div>
