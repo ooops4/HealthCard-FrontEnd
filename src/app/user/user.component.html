@@ -8,17 +8,17 @@
 <table class="table">
     <tr *ngFor="let user of users">
         <td class="text-left">
-            <a (click)="edit(user)">
-                <span *ngIf="user!==editUser">{{user.name}}</span>
-                <input *ngIf="user==editUser" [(ngModel)]="user.name" (blur)="update()" (keyup.enter)="update()">
+            <a [routerLink]="['/user-details/', user._id]">
+            <!-- <a (click)="edit(user)"> -->
+                <span>{{user.name}}  -   {{user._id}}</span>
+                <!-- <input *ngIf="user==editUser" [(ngModel)]="user.name" (blur)="update(user)" (keyup.enter)="update(user)"> -->
             </a>
         </td>
-        <td class="text-right">
-            <button class="btn btn-danger" title="delete user" (click)="delete(user)">Delete</button>
-        </td>
+       <app-user-details></app-user-details>
+          
+        
+    
     </tr>
 </table>
+<a routerLink="/user-details">View</a>    
 
-<div class="card card-body bg-light text-center">
-    <span class="small">click on the item to edit</span>
-</div>
