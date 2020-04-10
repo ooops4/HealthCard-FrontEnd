@@ -22,15 +22,15 @@ export class UserDetailsComponent implements OnInit{
    }
 
   ngOnInit(){
-    this.getUserDetails();
+    // this.getUserDetails();
   }
 
-  getUserDetails(){
-    this.httpClient.get<UserDetails>(`http://127.0.0.1:5000/api/user/${this.user_id}`).subscribe(response => {
-      console.log(response);
-      this.userDetails = response;
-    })
-    console.log(this.userDetails);
-  }
+  // getUserDetails(){
+  //   this.httpClient.get<UserDetails>(`http://127.0.0.1:5000/api/user/${this.user_id}`).subscribe(response => {
+  //     console.log(response);
+  //     this.userDetails = response;
+  //   })
+  //   console.log(this.userDetails);
+  // }
 
 }

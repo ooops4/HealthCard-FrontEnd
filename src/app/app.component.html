@@ -1,8 +1,23 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h1 class="text-center">Health Card</h1>
-      <router-outlet></router-outlet>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+  <a class="navbar-brand">Health Card</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+      </li>
+    </ul>
+      <ul class="navbar-nav">
+        <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/login" >Login</a>
+        <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/register">Register</a>
+        <a *ngIf="auth.isLoggedIn()" class="nav-link" routerLink="/profile" >Welcome {{ auth.getUserDetails()?.identity.first_name }}</a>
+        <a *ngIf="auth.isLoggedIn()" class="nav-link" routerLink="" (click)="auth.logout()">Logout</a>
+        </ul>
   </div>
+</nav>
+<div class="container">
+<router-outlet></router-outlet>
 </div>
