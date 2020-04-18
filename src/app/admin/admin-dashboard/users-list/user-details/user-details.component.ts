@@ -14,23 +14,24 @@ export class UserDetailsComponent implements OnInit{
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
     this.route.paramMap.subscribe((parameter: ParamMap) => {
-      if (parameter.has('userId')) {
-        this.user_id = parameter.get('userId');
+      if (parameter.has('user_id')) {
+        this.user_id = parameter.get('user_id');
         console.log(this.user_id);
       }
     })
    }
 
   ngOnInit(){
-    // this.getUserDetails();
+    this.getUserDetails();
   }
 
-  // getUserDetails(){
-  //   this.httpClient.get<UserDetails>(`http://127.0.0.1:5000/api/user/${this.user_id}`).subscribe(response => {
-  //     console.log(response);
-  //     this.userDetails = response;
-  //   })
-  //   console.log(this.userDetails);
-  // }
+  getUserDetails(){
+    this.httpClient.get<UserDetails>(`http://127.0.0.1:5000/api/user/${this.user_id}`).subscribe(response => {
+      console.log(response);
+      console.log(this.userDetails)
+      this.userDetails = response;
+    })
+    console.log(this.userDetails);
+  }
 
 }

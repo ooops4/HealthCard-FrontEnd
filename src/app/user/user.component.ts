@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from './users'
+import {UserDetails } from './users'
 // import {UserServices} from './user.service'
 import {HttpClient} from '@angular/common/http'
 
@@ -11,6 +11,8 @@ import {HttpClient} from '@angular/common/http'
 })
 
 export class UserComponent implements OnInit {
+  
+  details:UserDetails
 
   users: JSON
   editUser: JSON
@@ -29,17 +31,17 @@ export class UserComponent implements OnInit {
     })
   }
 
-  add(name:string):void{
-    this.editUser = undefined
-    name = name.trim()
-    if(!name){
-      return
-    }
-    const newUser: User = {name} as User
-    this.httpClient.post('http://127.0.0.1:5000/api/users',{ "name": name}).subscribe(() => this.getUsers())
-  }
+  // add(name:string):void{
+  //   this.editUser = undefined
+  //   name = name.trim()
+  //   if(!name){
+  //     return
+  //   }
+  //   const newUser: UserDetails = {identity.first_name} as UserDetails
+  //   this.httpClient.post('http://127.0.0.1:5000/api/users',{ "first_name": name}).subscribe(() => this.getUsers())
+  // }
 
-  delete(user: User):void{
+  delete(user: UserDetails):void{
     // this.users =this.users.filter(h => h !== user)
     // console.log(user);
     this.httpClient.delete(`http://127.0.0.1:5000/api/user/${user._id}`).subscribe(() => this.getUsers())
@@ -48,15 +50,15 @@ export class UserComponent implements OnInit {
     this.editUser = user
 
   }
-  update(user: User){
+  update(user: UserDetails){
     if(this.editUser){
-      this.httpClient.put(`http://127.0.0.1:5000/api/user/${user._id}`, {"name": user.name}).subscribe(() => {
+      this.httpClient.put(`http://127.0.0.1:5000/api/user/${user._id}`, {"first_name": user.identity.first_name}).subscribe(() => {
         this.getUsers()
       })
       this.editUser = undefined
     }
   }
-  ViewDetails(user:User){
+  ViewDetails(user:UserDetails){
     this.httpClient.get(`http://127.0.0.1:5000/api/user/${user._id}`)
     console.log(user)
 

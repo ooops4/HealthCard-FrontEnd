@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 mt-5 mx-auto">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          <h1 class="h3 mb-3 font-weight-normal">Add New User</h1>
+          <hr>
+          <h3 class="h4 mb-3 font-weight-normal">Basic Information</h3>
+          
+            <!-- Name -->
+           
+              <div class="form-group">
+                <label for="name">First Name</label>
+                <input type="text" class="form-control" formControlName="first_name" placeholder="Enter your first name" >
+              </div>
+              <div class="form-group">
+                <label for="name">Last Name</label>
+                <input type="text" class="form-control" formControlName="last_name" placeholder="Enter your last name" >
+              </div>
+      
+                <!-- EMAIL -->
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+              </div>
+
+               <!-- Password -->
+               <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control"  placeholder="Password"formControlName="password">
+              </div>
+
+
+            <!-- GENDER -->
+              <div>    
+                <label for="Gender">Gender</label>
+             
+
+              <div class="custom-control custom-radio">
+                <input  type="radio" class="custom-control-input" id="Male" value="male" name="gender" formControlName="gender">
+                <label class="custom-control-label" for="Male">Male</label>
+              </div>    
+              <div class="custom-control custom-radio">
+                <input  type="radio" class="custom-control-input" id="Female" value="female" name="gender" formControlName="gender">
+                <label class="custom-control-label" for="Female">Female</label>
+              </div>    
+              </div>
+              
+                
+              <!-- Father Name -->
+            
+              <div class="form-group">
+                <label for="father_name">Fathers Name</label>
+                <input type="text" class="form-control" placeholder="Enter Father's Name" formControlName="father_name" >
+              </div>
+              <!-- Mothers Name -->
+              <div class="form-group">
+                <label for="mother_name">Mothers Name</label>
+                <input type="text" class="form-control" placeholder="Enter Mother's Name" formControlName="mother_name">
+              </div>
+
+             
+
+              <!-- Contact number -->
+              <div class="form-group">
+                <label for="contact_number">Contact Number</label>
+                <input type="number" class="form-control" placeholder="Comtact Number" formControlName="contact_number" >
+              </div>
+              <!-- Emergency Contact Number -->
+              <div class="form-group">
+                <label for="emergency_contact_number">Emergency Contact Number</label>
+                <input type="number" class="form-control" placeholder="Enter emergency contact number" formControlName="emergency_contact_number" >
+              </div>
+              
+               <!-- Age -->
+               <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" placeholder="Enter age" formControlName="age" >
+              </div>
+
+
+
+          <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!registrationForm.valid">Add User</button>
+        </form>
+      </div>
+    </div>
+  </div>

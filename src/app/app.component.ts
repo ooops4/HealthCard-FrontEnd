@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
+import { AuthenticationAdminService } from './admin/admin-login/authentication-admin.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,5 +8,7 @@ import { AuthenticationService } from './authentication.service';
 })
 export class AppComponent {
   title = 'Health Card';
-  constructor(public auth: AuthenticationService){}
+  
+  constructor(public auth: AuthenticationService, public authAdmin : AuthenticationAdminService){}
+
 }

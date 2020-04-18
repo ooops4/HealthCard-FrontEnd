@@ -1,24 +1,12 @@
-<form class="form" (submit)="add(userName.value); userName.value=''">
-    <div class="form-group">
-        <input #userName class="form-control" placeholder="User Name">
-    </div>
-    <input type="submit" value="SUBMIT" class="btn btn-success btn-lg btn-block">
-</form>
-
 <table class="table">
     <tr *ngFor="let user of users">
         <td class="text-left">
             <a [routerLink]="['/user-details/', user._id]">
             <!-- <a (click)="edit(user)"> -->
-                <span>{{user.name}}  -   {{user._id}}</span>
+                <span>{{user.name}}</span>
                 <!-- <input *ngIf="user==editUser" [(ngModel)]="user.name" (blur)="update(user)" (keyup.enter)="update(user)"> -->
             </a>
         </td>
-       <app-user-details></app-user-details>
-          
-        
-    
     </tr>
-</table>
-<a routerLink="/user-details">View</a>    
+</table> 
 

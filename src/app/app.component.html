@@ -1,20 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand">Health Card</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" >
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="nav-link" *ngIf="auth.isLoggedIn()" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
     </ul>
       <ul class="navbar-nav">
-        <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/login" >Login</a>
-        <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/register">Register</a>
+        <a *ngIf="!auth.isLoggedIn() && !authAdmin.isLoggedIn()" class="nav-link" routerLink="/login" >Login</a>
+        <a *ngIf="authAdmin.isLoggedIn() && !auth.isLoggedIn() " class="nav-link" routerLink="/admin-dashboard">Dashboard</a>
+        <!-- <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/admin-login" >Admin Login</a> -->
+        <!-- <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/register">Register</a> -->
+        <!-- <a *ngIf="auth.isLoggedIn()-" class="nav-link" routerLink="/user">Users List</a> -->
         <a *ngIf="auth.isLoggedIn()" class="nav-link" routerLink="/profile" >Welcome {{ auth.getUserDetails()?.identity.first_name }}</a>
-        <a *ngIf="auth.isLoggedIn()" class="nav-link" routerLink="" (click)="auth.logout()">Logout</a>
+        <a *ngIf="auth.isLoggedIn()" class="nav-link" routerLink="" (click)="auth.logout()">Logout user</a>
+        <a *ngIf="authAdmin.isLoggedIn()" class="nav-link" routerLink="" (click)="authAdmin.logout()">Logout admin</a>
         </ul>
   </div>
 </nav>
