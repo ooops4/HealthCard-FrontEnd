@@ -10,7 +10,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit{
   user_id: string;
-  userDetails: UserDetails;
+  userDetails: any;
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
     this.route.paramMap.subscribe((parameter: ParamMap) => {

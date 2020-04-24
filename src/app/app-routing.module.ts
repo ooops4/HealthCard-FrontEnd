@@ -22,6 +22,14 @@ import { LaboratoryListComponent } from './admin/admin-dashboard/laboratory-list
 import { AddLaboratoryComponent } from './admin/admin-dashboard/laboratory-list/add-laboratory/add-laboratory.component';
 import { MedicalStoreListComponent } from './admin/admin-dashboard/medical-store-list/medical-store-list.component';
 import { AddMedicalStoreComponent } from './admin/admin-dashboard/medical-store-list/add-medical-store/add-medical-store.component';
+import { UploadComponent } from './upload/upload.component';
+import { DoctorLoginComponent } from './doctor/doctor-login/doctor-login.component';
+import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
+import { NewPatientComponent } from './doctor/doctor-dashboard/new-patient/new-patient.component';
+import { PatientListComponent } from './doctor/doctor-dashboard/patient-list/patient-list.component';
+import { PatientDetailsComponent } from './doctor/doctor-dashboard/patient-details/patient-details.component';
+import { NewCaseComponent } from './doctor/doctor-dashboard/cases/new-case/new-case.component';
+import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/view-cases.component';
 
 
 
@@ -38,6 +46,9 @@ const routes: Routes = [
   { path: 'users-list', component: UsersListComponent },
   { path: 'add-user', component: AddNewUserComponent },
   { path: 'user/details/:user_id',component: UserDetailsComponent },
+
+
+  // Admin Dashboard Department
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'clinic-list', component: ClinicListComponent },
   { path: 'add-clinic', component: AddClinicComponent },
@@ -49,6 +60,17 @@ const routes: Routes = [
   { path: 'add-medical-store', component: AddMedicalStoreComponent},
   { path: 'doctor-list', component: DoctorsListComponent},
   { path: 'add-doctor', component: AddDoctorComponent},
+  { path: 'upload', component: UploadComponent},
+
+
+  // Doctor Department
+  { path: 'doctor/login', component: DoctorLoginComponent},
+  { path: 'doctor/dashboard', component: DoctorDashboardComponent},  
+  { path: 'doctor/new-patient', component: NewPatientComponent},
+  { path: 'doctor/patient-list', component: PatientListComponent},
+  { path: 'doctor/patient-details/:patientID', component: PatientDetailsComponent},
+  { path: 'doctor/patient-details/:patientID/new-case', component: NewCaseComponent},
+  { path: 'doctor/patient-details/:patientID/view-cases', component: ViewCasesComponent},
 
 ];
 

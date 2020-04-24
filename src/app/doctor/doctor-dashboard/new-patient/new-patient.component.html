@@ -1,0 +1,14 @@
+<div class="container">
+        <div class="row">
+          <div class="col-md-6 mt-5 mx-auto">
+            <form>
+              <h1 class="h3 mb-3 font-weight-normal text-center">New Patient</h1>
+              <div class="form-group">
+                <label for="email">Patient ID</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter patient ID" [(ngModel)]="patientID">
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block" [routerLink]="['/doctor/patient-details',patientID]" >Find</button>
+            </form>
+        </div>
+    </div>
+</div>

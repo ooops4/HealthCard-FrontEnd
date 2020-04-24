@@ -29,6 +29,14 @@ import { AddHospitalComponent } from './admin/admin-dashboard/hospital-list/add-
 import { AddLaboratoryComponent } from './admin/admin-dashboard/laboratory-list/add-laboratory/add-laboratory.component';
 import { AddMedicalStoreComponent } from './admin/admin-dashboard/medical-store-list/add-medical-store/add-medical-store.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UploadComponent } from './upload/upload.component';
+import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
+import { NewPatientComponent } from './doctor/doctor-dashboard/new-patient/new-patient.component';
+import { DoctorLoginComponent } from './doctor/doctor-login/doctor-login.component';
+import { PatientListComponent } from './doctor/doctor-dashboard/patient-list/patient-list.component';
+import { PatientDetailsComponent } from './doctor/doctor-dashboard/patient-details/patient-details.component';
+import { NewCaseComponent } from './doctor/doctor-dashboard/cases/new-case/new-case.component';
+import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/view-cases.component';
 
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -55,6 +63,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AddHospitalComponent,
     AddLaboratoryComponent,
     AddMedicalStoreComponent,
+    UploadComponent,
+    DoctorDashboardComponent,
+    NewPatientComponent,
+    DoctorLoginComponent,
+    PatientListComponent,
+    PatientDetailsComponent,
+    NewCaseComponent,
+    ViewCasesComponent,
   ],
   imports: [
     BrowserModule,

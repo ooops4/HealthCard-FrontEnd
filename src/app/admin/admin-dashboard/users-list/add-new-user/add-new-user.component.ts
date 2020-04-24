@@ -39,7 +39,7 @@ export class AddNewUserComponent {
     contact_number:'' ,
     emergency_contact_number:'',
     father_name:'',
-    mother_name:''
+    mother_name:'',
   }
 
  

@@ -1,3 +1,5 @@
+import { ArrayType } from '@angular/compiler';
+
 export interface NewUserDetails {
     _id: string
     first_name: string
