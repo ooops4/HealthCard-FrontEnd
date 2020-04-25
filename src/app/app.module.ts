@@ -37,6 +37,8 @@ import { PatientListComponent } from './doctor/doctor-dashboard/patient-list/pat
 import { PatientDetailsComponent } from './doctor/doctor-dashboard/patient-details/patient-details.component';
 import { NewCaseComponent } from './doctor/doctor-dashboard/cases/new-case/new-case.component';
 import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/view-cases.component';
+import { AuthGuardDoctorService } from './doctor/doctor-login/auth-guard-doctor.service';
+import { AuthenticationDoctorService } from './doctor/doctor-login/authentication-doctor.service';
 
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -83,7 +85,7 @@ import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/v
     
     
   ],
-  providers: [AuthenticationService, AuthGuardService, AuthGuardAdminService, AuthenticationAdminService],
+  providers: [AuthenticationService, AuthGuardService, AuthGuardAdminService, AuthenticationAdminService, AuthGuardDoctorService, AuthenticationDoctorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

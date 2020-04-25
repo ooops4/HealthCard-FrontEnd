@@ -30,6 +30,7 @@ import { PatientListComponent } from './doctor/doctor-dashboard/patient-list/pat
 import { PatientDetailsComponent } from './doctor/doctor-dashboard/patient-details/patient-details.component';
 import { NewCaseComponent } from './doctor/doctor-dashboard/cases/new-case/new-case.component';
 import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/view-cases.component';
+import { AuthGuardDoctorService } from './doctor/doctor-login/auth-guard-doctor.service';
 
 
 
@@ -64,7 +65,7 @@ const routes: Routes = [
 
 
   // Doctor Department
-  { path: 'doctor/login', component: DoctorLoginComponent},
+  { path: 'doctor/login', component: DoctorLoginComponent,canActivate:[AuthGuardDoctorService]},
   { path: 'doctor/dashboard', component: DoctorDashboardComponent},  
   { path: 'doctor/new-patient', component: NewPatientComponent},
   { path: 'doctor/patient-list', component: PatientListComponent},
