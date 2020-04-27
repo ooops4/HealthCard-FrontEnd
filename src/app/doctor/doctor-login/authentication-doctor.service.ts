@@ -70,7 +70,7 @@ export class AuthenticationDoctorService {
     }
   }
   public AddUser(user: DoctorTokenPayload): Observable<any> {
-    const base = this.httpClient.post(`http://127.0.0.1:5000/api/register`, user)
+    const base = this.httpClient.post(`http://127.0.0.1:5000/api/doctor/register`, user)
 
     const request = base.pipe(
       map((data: DoctorTokenResponse) => {
@@ -86,7 +86,7 @@ export class AuthenticationDoctorService {
   
 
   public login(user: DoctorTokenPayload): Observable<any> {
-    const base = this.httpClient.post(`http://127.0.0.1:5000/api/login`, user)
+    const base = this.httpClient.post(`http://127.0.0.1:5000/api/doctor/login`, user)
 
     const request = base.pipe(
       map((data: DoctorTokenResponse) => {
@@ -102,7 +102,7 @@ export class AuthenticationDoctorService {
 
   public logout(): void {
     this.token = ''
-    window.localStorage.removeItem('admintoken')
+    window.localStorage.removeItem('doctortoken')
     this.router.navigateByUrl('/doctor/login')
   }
 }

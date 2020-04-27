@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import { Router, CanActivate } from '@angular/router'
-// import { AuthenticationAdminService } from './authentication-admin.service'
 import { AuthenticationDoctorService } from './authentication-doctor.service'
 
 @Injectable()

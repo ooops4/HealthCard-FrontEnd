@@ -24,7 +24,7 @@ export class AdminLoginComponent {
   login(){
     this.auth.login(this.credentials).subscribe(
     () => {
-      this.route.navigateByUrl('/admin-dashboard')
+      this.route.navigateByUrl('/admin/dashboard')
     },
     err =>
       console.error(err)

@@ -31,7 +31,7 @@ export class PatientDetailsComponent implements OnInit {
   
 
   getUserDetails(){
-    this.httpClient.get<PatientDetails>(`http://127.0.0.1:5000/api/user/${this.patientID}`).subscribe(response => {
+    this.httpClient.get<PatientDetails>(`http://127.0.0.1:5000/api/user/cases/${this.patientID}`).subscribe(response => {
       // console.log(response);
       // console.log(this.patientDetails)
       this.patientDetails = response;

@@ -13,24 +13,24 @@ export class AdminDashboardComponent implements OnInit {
   constructor( private router:Router) { }
 
   UsersList(){
-    this.router.navigateByUrl('/users-list')
+    this.router.navigateByUrl('/admin/users/users-list')
     
   }
   DoctorList(){
-    this.router.navigateByUrl('/doctor-list')
+    this.router.navigateByUrl('/admin/doctor/doctor-list')
     
   }
   HospitalList(){
-    this.router.navigateByUrl('/hospital-list')
+    this.router.navigateByUrl('/admin/hospital/hospital-list')
     
   }
   ClinicList(){
-    this.router.navigateByUrl('/clinic-list')
+    this.router.navigateByUrl('/admin/clinic/clinic-list')
     
   }
 
   MedicalStoreList(){
-    this.router.navigateByUrl('/medical-store-list')
+    this.router.navigateByUrl('/admin/medical/medical-store-list')
     
   }
 

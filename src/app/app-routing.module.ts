@@ -40,31 +40,42 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component:  ProfileComponent,canActivate:[AuthGuardService] },
-  { path: 'admin-login', component: AdminLoginComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent,canActivate:[AuthGuardAdminService] },
-  { path: 'doctors-list', component: DoctorsListComponent },
-  { path: 'add-doctor', component: AddDoctorComponent },
-  { path: 'users-list', component: UsersListComponent },
-  { path: 'add-user', component: AddNewUserComponent },
-  { path: 'user/details/:user_id',component: UserDetailsComponent },
+
+
+  // ADMIN
+  { path: 'admin/login', component: AdminLoginComponent},
+  { path: 'admin/dashboard', component: AdminDashboardComponent,canActivate:[AuthGuardAdminService] },
+  
+  //ADMIN USER Thing
+  { path: 'admin/users/users-list', component: UsersListComponent },
+  { path: 'admin/users/add-user', component: AddNewUserComponent },
+  { path: 'admin/users/details/:user_id',component: UserDetailsComponent },
 
 
   // Admin Dashboard Department
-  { path: 'admin-login', component: AdminLoginComponent },
-  { path: 'clinic-list', component: ClinicListComponent },
-  { path: 'add-clinic', component: AddClinicComponent },
-  { path: 'hospital-list', component: HospitalListComponent },
-  { path: 'add-hospital', component: AddHospitalComponent},
-  { path: 'laboratory-list', component: LaboratoryListComponent},
-  { path: 'add-laboratory', component: AddLaboratoryComponent},
-  { path: 'medical-store-list', component: MedicalStoreListComponent},
-  { path: 'add-medical-store', component: AddMedicalStoreComponent},
-  { path: 'doctor-list', component: DoctorsListComponent},
-  { path: 'add-doctor', component: AddDoctorComponent},
+  { path: 'admin/clinic/clinic-list', component: ClinicListComponent },
+  { path: 'admin/clinic/add-clinic', component: AddClinicComponent },
+
+  //ADMIN HOSPITAL
+  { path: 'admin/hospital/hospital-list', component: HospitalListComponent },
+  { path: 'admin/hospital/add-hospital', component: AddHospitalComponent},
+
+  //ADMIN LABORATORY
+  { path: 'admin/laboratory/laboratory-list', component: LaboratoryListComponent},
+  { path: 'admin/laboratory/add-laboratory', component: AddLaboratoryComponent},
+
+  //ADMIN MEDICAL
+  { path: 'admin/medical/medical-store-list', component: MedicalStoreListComponent},
+  { path: 'admin/medical/add-medical-store', component: AddMedicalStoreComponent},
+
+  //ADMIN DOCTOR
+  { path: 'admin/doctor/doctor-list', component: DoctorsListComponent},
+  { path: 'admin/doctor/add-doctor', component: AddDoctorComponent},
+  
   { path: 'upload', component: UploadComponent},
 
 
-  // Doctor Department
+  // DOCTOR USER Department
   { path: 'doctor/login', component: DoctorLoginComponent,canActivate:[AuthGuardDoctorService]},
   { path: 'doctor/dashboard', component: DoctorDashboardComponent},  
   { path: 'doctor/new-patient', component: NewPatientComponent},

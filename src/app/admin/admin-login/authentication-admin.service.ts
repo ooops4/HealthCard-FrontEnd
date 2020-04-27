@@ -103,6 +103,6 @@ export class AuthenticationAdminService {
   public logout(): void {
     this.token = ''
     window.localStorage.removeItem('admintoken')
-    this.router.navigateByUrl('/admin-login')
+    this.router.navigateByUrl('/admin/login')
   }
 }

@@ -1,4 +1,4 @@
-export interface NewUserDetails {
+export interface NewDoctorDetails {
     _id: string
     first_name: string
     last_name: string
@@ -10,7 +10,5 @@ export interface NewUserDetails {
     emergency_contact_number:string
     father_name:string
     mother_name:string
-    
-
+    qualification:string
   }
-  
