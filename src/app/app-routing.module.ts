@@ -72,6 +72,7 @@ const routes: Routes = [
   { path: 'admin/doctor/doctor-list', component: DoctorsListComponent},
   { path: 'admin/doctor/add-doctor', component: AddDoctorComponent},
   
+  
   { path: 'upload', component: UploadComponent},
 
 
