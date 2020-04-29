@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationDoctorService, DoctorTokenPayload } from './authentication-doctor.service';
+import { AuthenticationDoctorService } from './authentication-doctor.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,22 +10,17 @@ import { Router } from '@angular/router';
 export class DoctorLoginComponent{
 
   
-  credentials: DoctorTokenPayload = {
-    _id: '',
-    first_name: '',
-    last_name: '',
+  credentials = {
     email:'',
-    password: '',
-    gender: '',
-    age: ''
+    password: ''
   }
 
-  constructor(private auth:AuthenticationDoctorService, private route:Router) { }
+  constructor(private auth:AuthenticationDoctorService, private router: Router) { }
   login(){
-    this.auth.login(this.credentials).subscribe(
-    () => {
-      this.route.navigateByUrl('/doctor/dashboard')
-    },
-    err =>
-      console.error(err)
-    )}}
+    let user = {email: this.credentials.email, password: this.credentials.password}
+    this.auth.login(user).subscribe(response => {
+      this.auth.loginData(response);
+      this.router.navigate(['/doctor/dashboard'])
+    })
+  }
+}

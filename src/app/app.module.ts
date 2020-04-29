@@ -39,6 +39,14 @@ import { NewCaseComponent } from './doctor/doctor-dashboard/cases/new-case/new-c
 import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/view-cases.component';
 import { AuthGuardDoctorService } from './doctor/doctor-login/auth-guard-doctor.service';
 import { AuthenticationDoctorService } from './doctor/doctor-login/authentication-doctor.service';
+import { HospitalDashboardComponent } from './hospital/hospital-dashboard/hospital-dashboard.component';
+import { HospitalLoginComponent } from './hospital/hospital-login/hospital-login.component';
+import { AuthenticationHospitalService } from './hospital/hospital-login/authentication-hospital.service';
+import { AuthGuardHospitalService } from './hospital/hospital-login/auth-guard-hospital.service';
+import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/hospital-view-cases/hospital-view-cases.component';
+import { HospitalNewCaseComponent } from './hospital/hospital-dashboard/cases/hospital-new-case/hospital-new-case.component';
+import { HospitalPatientListComponent } from './hospital/hospital-dashboard/hospital-patient-list/hospital-patient-list.component';
+import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
 
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -73,6 +81,12 @@ import { AuthenticationDoctorService } from './doctor/doctor-login/authenticatio
     PatientDetailsComponent,
     NewCaseComponent,
     ViewCasesComponent,
+    HospitalDashboardComponent,
+    HospitalLoginComponent,
+    HospitalViewCasesComponent,
+    HospitalNewCaseComponent,
+    HospitalPatientListComponent,
+    HospitalNewPatientComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,7 +99,7 @@ import { AuthenticationDoctorService } from './doctor/doctor-login/authenticatio
     
     
   ],
-  providers: [AuthenticationService, AuthGuardService, AuthGuardAdminService, AuthenticationAdminService, AuthGuardDoctorService, AuthenticationDoctorService],
+  providers: [AuthenticationService, AuthGuardService, AuthGuardAdminService, AuthenticationAdminService, AuthGuardDoctorService, AuthenticationDoctorService, AuthenticationHospitalService, AuthGuardHospitalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

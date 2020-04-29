@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { AuthenticationDoctorService } from 'src/app/doctor/doctor-login/authentication-doctor.service';
+import { AuthenticationDoctorService, AddDoctor } from 'src/app/doctor/doctor-login/authentication-doctor.service';
 import { Router } from '@angular/router';
-import { NewDoctorDetails } from './new-doctor-details';
+// import { NewDoctorDetails } from './new-doctor-details';
 
 
 @Component({
@@ -46,20 +46,7 @@ export class AddDoctorComponent{
 
 
 
-  NewDoctorcredentials: NewDoctorDetails = {
-    _id: '',
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: '',
-    gender: '',
-    age: '',
-    contact_number:'' ,
-    emergency_contact_number:'',
-    father_name:'',
-    mother_name:'',
-    qualification: '',
-  }
+  NewDoctorcredentials: AddDoctor ;
 
 
 

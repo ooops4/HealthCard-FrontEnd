@@ -31,6 +31,14 @@ import { PatientDetailsComponent } from './doctor/doctor-dashboard/patient-detai
 import { NewCaseComponent } from './doctor/doctor-dashboard/cases/new-case/new-case.component';
 import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/view-cases.component';
 import { AuthGuardDoctorService } from './doctor/doctor-login/auth-guard-doctor.service';
+import { AuthGuardHospitalService } from './hospital/hospital-login/auth-guard-hospital.service';
+import { HospitalLoginComponent } from './hospital/hospital-login/hospital-login.component';
+import { HospitalDashboardComponent } from './hospital/hospital-dashboard/hospital-dashboard.component';
+import { HospitalPatientDetailsComponent } from './hospital/hospital-dashboard/hospital-patient-details/hospital-patient-details.component';
+import { HospitalNewCaseComponent } from './hospital/hospital-dashboard/cases/hospital-new-case/hospital-new-case.component';
+import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/hospital-view-cases/hospital-view-cases.component';
+import { HospitalPatientListComponent } from './hospital/hospital-dashboard/hospital-patient-list/hospital-patient-list.component';
+import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
 
 
 
@@ -77,13 +85,24 @@ const routes: Routes = [
 
 
   // DOCTOR USER Department
-  { path: 'doctor/login', component: DoctorLoginComponent,canActivate:[AuthGuardDoctorService]},
-  { path: 'doctor/dashboard', component: DoctorDashboardComponent},  
+  { path: 'doctor/login', component: DoctorLoginComponent},
+  { path: 'doctor/dashboard', component: DoctorDashboardComponent,canActivate:[AuthGuardDoctorService]},  
   { path: 'doctor/new-patient', component: NewPatientComponent},
   { path: 'doctor/patient-list', component: PatientListComponent},
   { path: 'doctor/patient-details/:patientID', component: PatientDetailsComponent},
   { path: 'doctor/patient-details/:patientID/new-case', component: NewCaseComponent},
   { path: 'doctor/patient-details/:patientID/view-cases', component: ViewCasesComponent},
+
+
+  //HOSPITAL USER DEPARTMENT
+  { path: 'hospital/login', component: HospitalLoginComponent},
+  { path: 'hospital/dashboard', component: HospitalDashboardComponent,canActivate:[AuthGuardHospitalService]},  
+  { path: 'hospital/new-patient', component: HospitalNewPatientComponent},   
+  { path: 'hospital/patient-list', component: HospitalPatientListComponent},   
+  { path: 'hospital/patient-details/:patientID', component: HospitalPatientDetailsComponent},  
+  { path: 'hospital/patient-details/:patientID/new-cases', component: HospitalNewCaseComponent},  
+  { path: 'hospital/patient-details/:patientID/view-cases', component: HospitalViewCasesComponent},  
+  
 
 ];
 
