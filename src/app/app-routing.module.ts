@@ -39,6 +39,7 @@ import { HospitalNewCaseComponent } from './hospital/hospital-dashboard/cases/ho
 import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/hospital-view-cases/hospital-view-cases.component';
 import { HospitalPatientListComponent } from './hospital/hospital-dashboard/hospital-patient-list/hospital-patient-list.component';
 import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
+import { CaseDetailsComponent } from './doctor/doctor-dashboard/cases/case-details/case-details.component';
 
 
 
@@ -90,8 +91,9 @@ const routes: Routes = [
   { path: 'doctor/new-patient', component: NewPatientComponent},
   { path: 'doctor/patient-list', component: PatientListComponent},
   { path: 'doctor/patient-details/:patientID', component: PatientDetailsComponent},
-  { path: 'doctor/patient-details/:patientID/new-case', component: NewCaseComponent},
-  { path: 'doctor/patient-details/:patientID/view-cases', component: ViewCasesComponent},
+  { path: 'doctor/patient-details/new-case/:patientID', component: NewCaseComponent},
+  { path: 'doctor/patient-details/view-cases/:patientID', component: ViewCasesComponent},
+  { path: 'doctor/patient-details/case-details/:caseID', component: CaseDetailsComponent},
 
 
   //HOSPITAL USER DEPARTMENT

@@ -31,7 +31,7 @@ export class PatientDetailsComponent implements OnInit {
   
 
   getUserDetails(){
-    this.httpClient.get<PatientDetails>(`http://127.0.0.1:5000/api/user/cases/${this.patientID}`).subscribe(response => {
+    this.httpClient.get<PatientDetails>(`http://127.0.0.1:5000/api/user/${this.patientID}`).subscribe(response => {
       // console.log(response);
       // console.log(this.patientDetails)
       this.patientDetails = response;
@@ -41,11 +41,11 @@ export class PatientDetailsComponent implements OnInit {
 
   
   NewCase(){
-    this.route.navigateByUrl(`doctor/patient-details/${this.patientID}/new-case`)
+    this.route.navigateByUrl(`doctor/patient-details/new-case/${this.patientID}`)
   }
 
   ViewCases(){
-    this.route.navigateByUrl(`doctor/patient-details/${this.patientID}/view-cases`)
+    this.route.navigateByUrl(`doctor/patient-details/view-cases/${this.patientID}`)
   }
 
 }

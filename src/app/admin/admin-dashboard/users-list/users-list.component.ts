@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersListComponent implements OnInit {
  
-  users:string
+  users;
   searchText= this.users
 
   constructor(private httpClient: HttpClient, private route: Router)  { }
@@ -18,15 +18,15 @@ export class UsersListComponent implements OnInit {
   
   ngOnInit() {
 
-    this.httpClient.get('http://127.0.0.1:5000/api/users').subscribe(users => (this.users = users as string))
+    this.httpClient.get('http://127.0.0.1:5000/api/users').subscribe(users => (this.users = users))
     console.log(this.users)
 
    
   }
-  getUsers():void{
-    this.httpClient.get('http://127.0.0.1:5000/api/users').subscribe(users => (this.users = users as string))
+  // getUsers():void{
+  //   this.httpClient.get('http://127.0.0.1:5000/api/users').subscribe(users => (this.users = users))
 
-  }
+  // }
 
   NewUser(){
     this.route.navigateByUrl('/add-user')

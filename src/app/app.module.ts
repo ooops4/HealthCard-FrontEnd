@@ -47,6 +47,7 @@ import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/
 import { HospitalNewCaseComponent } from './hospital/hospital-dashboard/cases/hospital-new-case/hospital-new-case.component';
 import { HospitalPatientListComponent } from './hospital/hospital-dashboard/hospital-patient-list/hospital-patient-list.component';
 import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
+import { CaseDetailsComponent } from './doctor/doctor-dashboard/cases/case-details/case-details.component';
 
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -87,6 +88,7 @@ import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospi
     HospitalNewCaseComponent,
     HospitalPatientListComponent,
     HospitalNewPatientComponent,
+    CaseDetailsComponent,
   ],
   imports: [
     BrowserModule,

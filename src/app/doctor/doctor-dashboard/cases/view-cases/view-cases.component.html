@@ -3,15 +3,39 @@
   
     <br>
     <br>
-    <!-- <p>The .table-striped class adds zebra-stripes to a table:</p>             -->
+
+    <!-- <div class="search-users">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Search for any users by name ">
+        <br>
+    </div> -->
+
+   
     <table class="table table-dark">
+        <tbody>
     
-        <tr>
-          <th>First Name</th>
-            <!-- <td>{{patientDetails.first_name}}</td> -->
+        <tr *ngFor="let case of cases">
+            <td [routerLink]="['/doctor/patient-details/case-details/',case._id]">{{case.disease}}</td>
         </tr>
+    </tbody>
     </table>
  
+<!-- 
+
+    <table class="table table-dark table-hover">
+        <tbody>
+        <tr *ngFor="let user of users | filter:searchText">
+           <td class="text-left"> -->
+                <!-- <a > -->
+                <!-- <a (click)="edit(user)"> --> 
+                    
+             <!-- <td [routerLink]="['/user/details/',user._id]"> {{user.first_name}} {{user.last_name}}</td> -->
+                      
+                    <!-- <input *ngIf="user==editUser" [(ngModel)]="user.name" (blur)="update(user)" (keyup.enter)="update(user)"> -->
+                <!-- </a> -->
+            <!-- </td> -->
+        <!-- </tr>
+    </tbody> 
+    </table>  --> 
  
  
 </div>
