@@ -12,7 +12,12 @@ export interface NewUserDetails {
     mother_name:string
     blood_group:string
     profile_photo:File
-    
-
+    marital_status:string
+    aadhar_number:number
+    address_street:string
+    address_city:string
+    address_state:string
+    address_pincode:number
+    address_landmark:string
   }
   
