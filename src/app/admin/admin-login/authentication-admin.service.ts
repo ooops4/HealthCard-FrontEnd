@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable, of } from 'rxjs'
+import { Observable, of, EMPTY } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { Router } from '@angular/router'
+import { NewUserDetails } from '../admin-dashboard/users-list/add-new-user/new-user-details'
 
 export interface AdminDetails {
   _id: string
@@ -69,19 +70,20 @@ export class AuthenticationAdminService {
       return false
     }
   }
-  public AddUser(user: AdminTokenPayload): Observable<any> {
-    const base = this.httpClient.post(`http://127.0.0.1:5000/api/register`, user)
 
-    const request = base.pipe(
-      map((data: AdminTokenResponse) => {
-        if (data.token) {
-          this.saveToken(data.token)
-        }
-        return data
-      })
-    )
 
-    return request
+  public AddUser(user: NewUserDetails): Observable<any> {
+    const formData = new FormData;
+    for (const [key, value] of Object.entries(user)) {
+      // if(key =='profile_photo'){
+      //   continue;
+      // }
+      // console.log(key,value)
+      formData.append(key, value);
+    }
+    console.log(formData);
+    // return EMPTY
+    return this.httpClient.post(`http://127.0.0.1:5000/api/register`, formData)
   }
   
 

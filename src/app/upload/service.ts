@@ -23,10 +23,7 @@ export class ServiceService {
     return this.http.request(req);
   }
 
-  // getFiles(): Observable<any> {
-  //   console.log(this.filename);
-  //   return this.http.get('http://localhost:8080/getcontentfile/' + this.filename );
-  // }
+
 
 
   serFilename(value: string) {

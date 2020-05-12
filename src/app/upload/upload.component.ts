@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
+// import { Router } from '@angular/router';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { ServiceService } from './service';
 
 @Component({
@@ -13,7 +13,7 @@ export class UploadComponent implements OnInit {
   // constructor(private route:Router, private httpClient:HttpClient) { }
   selectedFiles: FileList;
   currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };
+  // progress: { percentage: number } = { percentage: 0 };
   @Input() filename: string;
 
   constructor(private uploadService: ServiceService) {
@@ -37,15 +37,11 @@ selectFile(event) {
 
 // ## HTTP call
   upload() {
-  this.progress.percentage = 0;
+  // this.progress.percentage = 0;
 
   this.currentFileUpload = this.selectedFiles.item(0);
   this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-    if (event.type === HttpEventType.UploadProgress) {
-      this.progress.percentage = Math.round(100 * event.loaded / event.total);
-    } else if (event instanceof HttpResponse) {
-      console.log('File is completely uploaded!');
-    }
+    
   });
 
   this.selectedFiles = undefined;

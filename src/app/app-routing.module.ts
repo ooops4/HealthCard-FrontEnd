@@ -56,9 +56,9 @@ const routes: Routes = [
   { path: 'admin/dashboard', component: AdminDashboardComponent,canActivate:[AuthGuardAdminService] },
   
   //ADMIN USER Thing
-  { path: 'admin/users/users-list', component: UsersListComponent },
-  { path: 'admin/users/add-user', component: AddNewUserComponent },
-  { path: 'admin/users/details/:user_id',component: UserDetailsComponent },
+  { path: 'admin/user/users-list', component: UsersListComponent },
+  { path: 'admin/user/add-user', component: AddNewUserComponent },
+  { path: 'admin/user/details/:user_id',component: UserDetailsComponent },
 
 
   // Admin Dashboard Department

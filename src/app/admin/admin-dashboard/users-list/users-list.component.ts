@@ -18,7 +18,7 @@ export class UsersListComponent implements OnInit {
   
   ngOnInit() {
 
-    this.httpClient.get('http://127.0.0.1:5000/api/users').subscribe(users => (this.users = users))
+    this.httpClient.get('http://127.0.0.1:5000/api/users/').subscribe(users => (this.users = users))
     console.log(this.users)
 
    
@@ -29,7 +29,7 @@ export class UsersListComponent implements OnInit {
   // }
 
   NewUser(){
-    this.route.navigateByUrl('/add-user')
+    this.route.navigateByUrl('/admin/user/add-user')
   }
     
 }

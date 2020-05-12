@@ -28,7 +28,7 @@ export class UserDetailsComponent implements OnInit{
   getUserDetails(){
     this.httpClient.get<UserDetails>(`http://127.0.0.1:5000/api/user/${this.user_id}`).subscribe(response => {
       console.log(response);
-      console.log(this.userDetails)
+      // console.log(this.userDetails)
       this.userDetails = response;
     })
     console.log(this.userDetails);

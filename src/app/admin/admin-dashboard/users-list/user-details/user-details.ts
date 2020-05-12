@@ -10,4 +10,5 @@ export interface UserDetails{
     contact_number:number
     emergency_contact_number:number
     gender:string
+    profile_photo:string
 }

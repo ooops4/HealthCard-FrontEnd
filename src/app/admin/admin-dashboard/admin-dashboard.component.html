@@ -1,23 +1,82 @@
-<div class="container">
-  <!-- <div class="example-button-row"> -->
-    <!-- <table>
-      <tr> -->
-      <h1 class="h3 mb-3 font-weight-normal" >Admin Dashboard</h1>
-      
-    <button type="button" class="btn btn-dark " (click)="UsersList()">Users List</button>
-    <br>
-        <br>
-    <button type="button" class="btn btn-dark " (click)="DoctorList()">Doctor List</button>
-    <br>
-        <br>
-    <button type="button" class="btn btn-dark " (click)="HospitalList()">Hospital List</button>
-    <br>
-        <br>
-    <button type="button" class="btn btn-dark " (click)="ClinicList()">Clinic List</button>
-    <br>
-        <br>
-    <button type="button" class="btn btn-dark " (click)="MedicalStoreList()">Medical Store List</button>
-    <!-- </div> -->
-  <!-- </tr> -->
-  <!-- </table> -->
-  </div>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+</head>
+<body>
+  <div class="container main-section" >
+
+	<div class="row justify-content-md-center">
+
+		<div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="UserList()">
+			<div class="row main-box-layout img-thumbnail">
+				<div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+					<i class="fa fa-user" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-12 box-text-section">
+					<p>Users List</p>
+				</div>
+				<div class="label">
+					<h3><span class="badge badge-pill bg-primary">{{counts.users_count}}</span></h3>
+				</div>
+			</div>
+    </div>
+    
+
+		<div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="DoctorList()">
+			<div class="row main-box-layout img-thumbnail">
+				<div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-warning">
+					<i class="fa fa-stethoscope " aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-12 box-text-section">
+					<p>Doctors List</p>
+				</div>
+				<div class="label">
+					<h3><span class="badge badge-pill bg-warning">{{counts.doctors_count}}</span></h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="HospitalList()">
+			<div class="row main-box-layout img-thumbnail">
+				<div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-danger">
+					<i class="fa fa-hospital-o " aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-12 box-text-section">
+					<p>Hospitals List</p>
+				</div>
+				<div class="label">
+					<h3><span class="badge badge-pill bg-danger">{{counts.hospitals_count}}</span></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-md-center">
+		<div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="ClinicList()">
+			<div class="row main-box-layout img-thumbnail">
+				<div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-info">
+					<i class="fa fa-hospital-o" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-12 box-text-section">
+					<p>Clinic List</p>
+				</div>
+				<div class="label">
+					<h3><span class="badge badge-pill bg-info">{{counts.clinics_count}}</span></h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="MedicalStoreList()">
+			<div class="row main-box-layout img-thumbnail">
+				<div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-success">
+					<i class="fa fa-medkit" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-12 box-text-section">
+					<p>Medical Store List</p>
+				</div>
+				<div class="label">
+					<h3><span class="badge badge-pill bg-success">{{counts.medical_store_count}}</span></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>

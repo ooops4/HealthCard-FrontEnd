@@ -1,32 +1,44 @@
-section {
-  display: table;
-  margin: 8px;
+body{
+	background-color:rgb(34,34,34);
 }
-
-.example-label {
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  width: 120px;
+.main-box-layout{
+	margin: 0px;
+	margin-top: 30px;
+	position: relative;
+	/* box-shadow: -3px 3px 3px 0px #c1c1c1; */
 }
-
-.example-button-row {
-  display: table-cell;
+.main-box-layout:hover .box-icon-section i{
+	font-size:70px;
+	transform: rotate(360deg);
+	transition:1s;
+} 
+.box-icon-section{
+	display: table;
+	height:100px;
+	color:#fff;
 }
-
-.example-button-row button {
-  display: table-cell;
-  margin-right: 8px;
+.box-icon-section i{
+	font-size:30px;
+	display: table-cell;
+  	vertical-align: middle;
+  	transition:transform 0.4s ease-in-out;
+    transition: 1s;
 }
-
-.example-flex-container {
-  display: flex;
-  justify-content: space-between;
-  width: 480px;
+.box-text-section{
+	background-color:#c3c3c3;
 }
-
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
+.box-text-section p{
+	margin: 0px;
+	color:#fff;
+	padding:10px 0px; 
+}
+.label .badge{
+	position: absolute;
+	top:-19px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #f1f1f1;
+	color: #fff;
+	box-shadow: 0px 0px 3px 0px #fff;
+	border: 3px solid #fff;
 }

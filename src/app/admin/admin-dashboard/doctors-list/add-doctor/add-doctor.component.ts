@@ -13,11 +13,6 @@ import { Router } from '@angular/router';
 export class AddDoctorComponent{
   qualification : string;
   qualificationList: any = ['MBBS', 'BDS', 'ENT']
-  
-
-  
-
-  
 
   changeQualification(e) {
     console.log(e.target.value);

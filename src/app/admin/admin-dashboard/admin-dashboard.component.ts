@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { counts } from './counts';
 
 
 @Component({
@@ -8,12 +10,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
+  // counts;
+  counts: any;
 
   
-  constructor( private router:Router) { }
+  constructor( private router:Router, private httpClient: HttpClient) { }
 
-  UsersList(){
-    this.router.navigateByUrl('/admin/users/users-list')
+  ngOnInit() {
+      this.httpClient.get<counts>(`http://127.0.0.1:5000/api/count`).subscribe(response => {
+        console.log(response);
+        this.counts = response;
+      })
+      console.log(this.counts);
+    }
+
+   
+  
+
+
+
+  UserList(){
+    this.router.navigateByUrl('/admin/user/users-list')
     
   }
   DoctorList(){
@@ -34,7 +51,5 @@ export class AdminDashboardComponent implements OnInit {
     
   }
 
-  ngOnInit(): void {
-  }
-
+ 
 }

@@ -1,3 +1,18 @@
+<!-- <head><script type="text/javascript">
+  function checkDOB() {
+      var dateString = document.getElementById('dateofbirth').value;
+      var myDate = new Date(dateString);
+      var today = new Date();
+      if ( myDate > today ) { 
+          $('#dateofbirth').after('<p>You cannot enter a date in the future!.</p>');
+          return false;
+      }
+      return true;
+  }
+</script>
+</head> -->
+
+<!-- <body> -->
 <div class="container">
     <div class="row">
       <div class="col-md-6 mt-5 mx-auto">
@@ -10,7 +25,15 @@
            
               <div class="form-group">
                 <label for="name">First Name</label>
-                <input type="text" class="form-control" formControlName="first_name" placeholder="Enter your first name" >
+                <input type="text" [class.is-invalid]="registrationForm.get('first_name').invalid &&
+                                                      registrationForm.get('first_name').touched" class="form-control" 
+                                                      formControlName="first_name" 
+                                                      placeholder="Enter your first name" >
+                  <small [class.d-none]="registrationForm.get('first_name').valid ||
+                                        registrationForm.get('first_name').untouched"
+                                        class="text-danger"> First Name is required </small>
+
+                <!-- Last Name -->
               </div>
               <div class="form-group">
                 <label for="name">Last Name</label>
@@ -29,22 +52,48 @@
                 <input type="password" class="form-control"  placeholder="Password"formControlName="password">
               </div>
 
+              <!-- PROFILE PHOTO -->
+              <div class="form-group">
+              <label class="btn btn-default">PROFILE PHOTO</label>
+                <input type="file" class="form-control" (change)="selectFile($event)" accept="image/*"> 
+             
+              </div>
 
             <!-- GENDER -->
               <div>    
                 <label for="Gender">Gender</label>
-             
 
-              <div class="custom-control custom-radio">
-                <input  type="radio" class="custom-control-input" id="Male" value="male" name="gender" formControlName="gender">
-                <label class="custom-control-label" for="Male">Male</label>
-              </div>    
-              <div class="custom-control custom-radio">
-                <input  type="radio" class="custom-control-input" id="Female" value="female" name="gender" formControlName="gender">
-                <label class="custom-control-label" for="Female">Female</label>
-              </div>    
+                <div class="custom-control custom-radio">
+                  <input  type="radio" class="custom-control-input" id="Male" value="male" name="gender" formControlName="gender">
+                  <label class="custom-control-label" for="Male">Male</label>
+                </div>
+                  
+                <div class="custom-control custom-radio">
+                  <input  type="radio" class="custom-control-input" id="Female" value="female" name="gender" formControlName="gender">
+                  <label class="custom-control-label" for="Female">Female</label>
+                </div>   
               </div>
-              
+              <!-- Age -->
+              <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" placeholder="Enter age" formControlName="age" >
+              </div>
+
+              <!-- Date of Birth -->
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                  <input type="date" class="form-control" max="maxDate" formControlName="dob">
+
+              </div>
+
+              <!-- Blood Group -->
+              <div class="form-group">
+                <label for="blood_group">Qualification</label>
+                <select formControlName="blood_group" class="form-control" (change)="changeBloodGroup($event)">
+                    <option disabled>Select Blood Group</option>
+                    <option *ngFor="let bloodGroup of blood_group_list">{{bloodGroup}}</option>
+                </select>
+              </div>
                 
               <!-- Father Name -->
             
@@ -71,11 +120,7 @@
                 <input type="number" class="form-control" placeholder="Enter emergency contact number" formControlName="emergency_contact_number" >
               </div>
               
-               <!-- Age -->
-               <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" class="form-control" placeholder="Enter age" formControlName="age" >
-              </div>
+               
 
 
 
@@ -84,3 +129,4 @@
       </div>
     </div>
   </div>
+<!-- </body> -->

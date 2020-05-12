@@ -5,11 +5,13 @@ export interface NewUserDetails {
     email: string
     password: string
     gender: string
-    age: string
-    contact_number:String
-    emergency_contact_number:string
+    age: number
+    contact_number:number
+    emergency_contact_number:number
     father_name:string
     mother_name:string
+    blood_group:string
+    profile_photo:File
     
 
   }
