@@ -1,1 +1,20 @@
-<p>clinic-list works!</p>
+<div class="container">
+    <h2>List of all Users</h2>
+    <button type="button" class="btn btn-dark" (click)="NewClinic()">New User</button>
+    <br>
+    <br>
+    <div class="search-users">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Search for any users by name ">
+        <br>
+    </div>
+<table class="table table-dark table-hover">
+    <tbody>
+    <tr *ngFor="let clinic of clinics | filter:searchText">
+      
+                
+         <td [routerLink]="['/admin/clinic/details/',clinic._id]"> {{clinic.clinic_name}} </td>
+ 
+    </tr>
+</tbody> 
+</table> 
+</div>

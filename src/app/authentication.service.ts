@@ -7,9 +7,26 @@ import { Router } from '@angular/router'
 export interface UserDetails {
   _id: string
   identity: {
-    first_name: string,
-    last_name: string,
+    id: string
+    first_name: string
+    last_name: string
     email: string
+    gender: string
+    age: number
+    contact_number:number
+    emergency_contact_number:number
+    father_name:string
+    mother_name:string
+    blood_group:string
+    profile_photo:string
+    marital_status:string
+    aadhar_number:number
+    street:string
+    city:string
+    state:string
+    pincode:number
+    landmark:string
+    dob:Date
   }
   password: string
   exp: number
@@ -84,7 +101,7 @@ export class AuthenticationService {
   }
 
   public login(user: TokenPayload): Observable<any> {
-    const base = this.httpClient.post(`http://127.0.0.1:5000/api/login`, user)
+    const base = this.httpClient.post(`http://127.0.0.1:5000/api/user/login`, user)
 
     const request = base.pipe(
       map((data: TokenResponse) => {

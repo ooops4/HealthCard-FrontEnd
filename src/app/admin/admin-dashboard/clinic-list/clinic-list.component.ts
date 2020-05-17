@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clinic-list',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClinicListComponent implements OnInit {
 
-  constructor() { }
+  clinics;
+  searchText= this.clinics
 
-  ngOnInit(): void {
+  constructor(private httpClient: HttpClient, private route: Router)  { }
+  
+  
+  ngOnInit() {
+
+    this.httpClient.get('http://127.0.0.1:5000/api/clinics/allclinics').subscribe(users => (this.clinics = users))
+    console.log(this.clinics)
+
+   
   }
 
+  NewClinic(){
+    this.route.navigateByUrl('/admin/clinic/add-clinic')
+  }
+    
 }
+

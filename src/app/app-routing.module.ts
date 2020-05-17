@@ -37,18 +37,18 @@ import { HospitalDashboardComponent } from './hospital/hospital-dashboard/hospit
 import { HospitalPatientDetailsComponent } from './hospital/hospital-dashboard/hospital-patient-details/hospital-patient-details.component';
 import { HospitalNewCaseComponent } from './hospital/hospital-dashboard/cases/hospital-new-case/hospital-new-case.component';
 import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/hospital-view-cases/hospital-view-cases.component';
-import { HospitalPatientListComponent } from './hospital/hospital-dashboard/hospital-patient-list/hospital-patient-list.component';
 import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
 import { CaseDetailsComponent } from './doctor/doctor-dashboard/cases/case-details/case-details.component';
+import { ClinicDetailsComponent } from './admin/admin-dashboard/clinic-list/clinic-details/clinic-details.component';
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'user', component: UserComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'user/login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component:  ProfileComponent,canActivate:[AuthGuardService] },
+  { path: 'user/profile', component:  ProfileComponent,canActivate:[AuthGuardService] },
 
 
   // ADMIN
@@ -61,9 +61,11 @@ const routes: Routes = [
   { path: 'admin/user/details/:user_id',component: UserDetailsComponent },
 
 
-  // Admin Dashboard Department
+  // Admin CLINIC 
   { path: 'admin/clinic/clinic-list', component: ClinicListComponent },
   { path: 'admin/clinic/add-clinic', component: AddClinicComponent },
+  { path: 'admin/clinic/details/:clinic_id',component:ClinicDetailsComponent},
+  
 
   //ADMIN HOSPITAL
   { path: 'admin/hospital/hospital-list', component: HospitalListComponent },
@@ -80,7 +82,9 @@ const routes: Routes = [
   //ADMIN DOCTOR
   { path: 'admin/doctor/doctor-list', component: DoctorsListComponent},
   { path: 'admin/doctor/add-doctor', component: AddDoctorComponent},
-  
+
+  //ADMIN CLINIC
+
   
   { path: 'upload', component: UploadComponent},
 
@@ -100,7 +104,7 @@ const routes: Routes = [
   { path: 'hospital/login', component: HospitalLoginComponent},
   { path: 'hospital/dashboard', component: HospitalDashboardComponent,canActivate:[AuthGuardHospitalService]},  
   { path: 'hospital/new-patient', component: HospitalNewPatientComponent},   
-  { path: 'hospital/patient-list', component: HospitalPatientListComponent},   
+
   { path: 'hospital/patient-details/:patientID', component: HospitalPatientDetailsComponent},  
   { path: 'hospital/patient-details/:patientID/new-cases', component: HospitalNewCaseComponent},  
   { path: 'hospital/patient-details/:patientID/view-cases', component: HospitalViewCasesComponent},  

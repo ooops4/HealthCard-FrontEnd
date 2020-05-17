@@ -14,10 +14,11 @@ export interface NewUserDetails {
     profile_photo:File
     marital_status:string
     aadhar_number:number
-    address_street:string
-    address_city:string
-    address_state:string
-    address_pincode:number
-    address_landmark:string
+    street:string
+    city:string
+    state:string
+    pincode:number
+    landmark:string
+    dob:Date
   }
   

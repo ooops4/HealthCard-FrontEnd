@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -45,11 +46,19 @@ import { AuthenticationHospitalService } from './hospital/hospital-login/authent
 import { AuthGuardHospitalService } from './hospital/hospital-login/auth-guard-hospital.service';
 import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/hospital-view-cases/hospital-view-cases.component';
 import { HospitalNewCaseComponent } from './hospital/hospital-dashboard/cases/hospital-new-case/hospital-new-case.component';
-import { HospitalPatientListComponent } from './hospital/hospital-dashboard/hospital-patient-list/hospital-patient-list.component';
 import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
 import { CaseDetailsComponent } from './doctor/doctor-dashboard/cases/case-details/case-details.component';
+import { LaboratoryDashboardComponent } from './laboratory/laboratory-dashboard/laboratory-dashboard.component';
+import { LaboratoryLoginComponent } from './laboratory/laboratory-login/laboratory-login.component';
+import { ClinicDashboardComponent } from './clinic/clinic-dashboard/clinic-dashboard.component';
+import { ClinicLoginComponent } from './clinic/clinic-login/clinic-login.component';
+import { ClinicDetailsComponent } from './admin/admin-dashboard/clinic-list/clinic-details/clinic-details.component';
+import { AuthGuardClinicService } from './clinic/clinic-login/auth-guard-clinic.service';
+import { AuthenticationClinicService } from './clinic/clinic-login/authentication-clinic.service';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 @NgModule({
@@ -86,22 +95,35 @@ import { CaseDetailsComponent } from './doctor/doctor-dashboard/cases/case-detai
     HospitalLoginComponent,
     HospitalViewCasesComponent,
     HospitalNewCaseComponent,
-    HospitalPatientListComponent,
     HospitalNewPatientComponent,
     CaseDetailsComponent,
+    LaboratoryDashboardComponent,
+    LaboratoryLoginComponent,
+    ClinicDashboardComponent,
+    ClinicLoginComponent,
+    ClinicDetailsComponent,
+
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    PdfViewerModule
     
-    
+   
   ],
-  providers: [AuthenticationService, AuthGuardService, AuthGuardAdminService, AuthenticationAdminService, AuthGuardDoctorService, AuthenticationDoctorService, AuthenticationHospitalService, AuthGuardHospitalService],
+  providers: [AuthenticationService, AuthGuardService,
+              AuthGuardAdminService, AuthenticationAdminService, 
+              AuthGuardDoctorService, AuthenticationDoctorService, 
+              AuthenticationHospitalService, AuthGuardHospitalService,
+              AuthGuardClinicService, AuthenticationClinicService],
+              
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

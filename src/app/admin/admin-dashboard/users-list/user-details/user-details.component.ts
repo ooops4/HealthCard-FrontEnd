@@ -30,6 +30,7 @@ export class UserDetailsComponent implements OnInit{
       console.log(response);
       // console.log(this.userDetails)
       this.userDetails = response;
+      console.log(typeof this.userDetails.dob)
     })
     console.log(this.userDetails);
   }

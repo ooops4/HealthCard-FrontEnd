@@ -1,1 +1,54 @@
-<h1>new case</h1>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 mt-5 mx-auto">
+        <form [formGroup]="NewCaseForm">
+          <h1 class="h3 mb-3 font-weight-normal">Add New Case</h1>    
+           <hr>
+          <h3 class="h4 mb-3 font-weight-normal">Case Information</h3>
+          
+          
+          <!-- Disease Name -->
+          <label for="disease_name"> Disease name</label>
+          <input formControlName="disease_name" class="form-control" type="text">
+          
+
+          <!-- observation Summary -->
+          <label for="disease_name">Observation Summary</label>
+          <textarea formControlName="disease_name" class="form-control" rows="5"> </textarea>
+
+        </form>
+
+        <label for="medicine_name">Medicine Name</label>
+        <input type="text" class="form-control" [(ngModel)]="medicine_name">
+        <label for="">Medicine Dosage</label>
+        <input type="text" class="form-control" [(ngModel)]="medicine_dosage">
+        <br>
+        <button (click)="addMedicine()" class="btn btn-success">Add Medicine</button>
+        
+        <h2>Medicines</h2>
+        <table class="table bg-white text-dark">
+          <tr>
+            <th>Sr No.</th>
+            <th>Medicine</th>
+            <th>Dosage</th>
+            <!-- <th>isTaken</th> -->
+            
+          </tr>
+          <tr *ngFor = "let medicine of NewCaseForm.get('medicines').value; let i = index">
+          <!-- <tr *ngFor = "let medicine of NewCaseForm.get('medicines').value; let i = index"></tr> -->
+            <td>{{ i+1 }}</td>
+            <td>{{medicine.name}}</td>
+            <td>{{medicine.dosage}}</td>
+            <!-- <td>{{medicine.isTaken}}</td> -->
+            <td><button (click)="removeMedicine(i)" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </table>
+        
+        
+
+    
+
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Add User</button>
+    </div>
+  </div>
+</div>

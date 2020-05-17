@@ -1,15 +1,55 @@
 import { Component, OnInit } from '@angular/core';
+import { NewCaseDetailsModel } from './new-case-details-model';
+import { FormBuilder, Validators, AbstractControl, FormGroup, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-case',
   templateUrl: './new-case.component.html',
   styleUrls: ['./new-case.component.css']
 })
-export class NewCaseComponent implements OnInit {
+export class NewCaseComponent implements OnInit{
 
-  constructor() { }
+  name = localStorage.getItem('name');
+  medicine_name: string;
+  medicine_dosage: number;
+  NewCaseForm: FormGroup;
 
-  ngOnInit(): void {
-  }
+    constructor(public fb:FormBuilder,private router:Router) {}
 
-}
+  ngOnInit() {
+
+    this.NewCaseForm = this.fb.group({
+      medicines : this.fb.array([]),
+      disease_name: ['']
+     });
+    }
+    
+     addMedicine(){
+       const medicine = {
+         name: this.medicine_name,
+         dosage: this.medicine_dosage,
+         isTaken: false
+        }
+       let getMedicine = this.NewCaseForm.get('medicines') as FormArray
+       getMedicine.push(this.fb.control(medicine));
+       this.NewCaseForm.updateValueAndValidity();
+       this.medicine_name = null;
+       this.medicine_dosage = null;
+       console.log(this.NewCaseForm.value)
+     }
+     
+     removeMedicine(i){
+      let getMedicine = this.NewCaseForm.get('medicines') as FormArray
+      getMedicine.removeAt(i);
+     }
+
+    
+     OnSubmit(){
+
+      
+     }
+      
+
+
+} 

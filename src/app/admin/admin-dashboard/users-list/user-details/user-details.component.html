@@ -1,7 +1,7 @@
 <div class="container">
         <h2>User Details</h2>
         <div class="text-center">
-          <img src={{userDetails.profile_photo}}  class="img-fluid" height="50%" width="50%">
+          <img src={{userDetails.profile_photo}}  class="img-fluid" height="20%" width="20%">
         </div>
 
 
@@ -52,6 +52,11 @@
             <tr>
               <th>Email Address</th>
                 <td>{{userDetails.email}}</td>
+            </tr>
+       
+            <tr>
+              <th>Date of Birth</th>
+                <td>{{userDetails.dob | date}}</td>
             </tr>
        
         </table>

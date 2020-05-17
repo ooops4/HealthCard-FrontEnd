@@ -1,12 +1,98 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+</head>
+
+<body>
 <div class="container">
     <div class="jumbotron mt-5">
       <div class="col-sm-8 mx-auto">
-        <h1 class="text-center" style="font-size: large;" style="text-decoration: blue, solid;">HEALTH CARD
+        <div class="text-center">
+        <img src="assets/logo.png"  width="300" height="300"> 
+      </div>
+                <h1 class="text-center">HEALTH CARD 
           <br>
-          <h3> 
+          <h4 class="text-center"> 
             Welcome to Health Card. Please Login to proceed
-          </h3>
+          </h4>
         </h1>
+        <hr class="hr">
+
+        <div class="row justify-content-md-center">
+
+          <div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="UserLogin()">
+            <div class="row main-box-layout img-thumbnail">
+              <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                <p>User Login</p>
+              </div>
+            </div>
+          </div>
+        
+
+            <div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="HospitalLogin()">
+              <div class="row main-box-layout img-thumbnail">
+                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                  <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                  <p>Hospital Login</p>
+                </div>
+              </div>
+            </div>
+      
+            
+            <div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="DoctorLogin()">
+              <div class="row main-box-layout img-thumbnail">
+                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                  <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                  <p>Doctor Login</p>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="LaboratoryLogin()">
+              <div class="row main-box-layout img-thumbnail">
+                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                  <i class="fa fa-flask" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                  <p>Lab Login</p>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="MedicalStoreLogin()">
+              <div class="row main-box-layout img-thumbnail">
+                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                  <i class="fa fa-medkit" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                  <p>Medical Login</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-4 col-12 text-center" style="position: relative;" (click)="ClinicLogin()">
+              <div class="row main-box-layout img-thumbnail">
+                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                  <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                  <p>Clinic Login</p>
+                </div>
+              </div>
+          
       </div>
     </div>
   </div>
+  </div>
+</div>
+
+</body>

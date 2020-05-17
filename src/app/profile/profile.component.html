@@ -3,18 +3,63 @@
       <div class="col-sm-8 mx-auto">
         <h1 class="text-center">PROFILE</h1>
       </div>
+      <div class="text-center">
+        <img src={{details.identity.profile_photo}}  class="img-fluid" height="20%" width="20%">
+      </div>
       <table class="table col-md-6 mx-auto">
+
+        
+
         <tr>
           <td>First Name</td>
           <td>{{ details.identity.first_name }}</td>
         </tr>
+
         <tr>
           <td>Last Name</td>
           <td>{{ details.identity.last_name }}</td>
         </tr>
+
         <tr>
           <td>Email</td>
           <td>{{ details.identity.email }}</td>
+        </tr>
+
+
+        <tr>
+          <td>Father Name</td>
+            <td>{{details.identity.father_name}}</td>
+        </tr>
+
+        <tr>
+          <td>Mother Name</td>
+            <td>{{details.identity.mother_name}}</td>
+        </tr>
+          
+        <tr>
+          <td>Age</td>
+            <td>{{details.identity.age}}</td>
+        </tr>
+
+        <tr>
+          <td>Gender</td>
+            <td>{{details.identity.gender}}</td>
+        </tr>
+
+        <tr>
+          <td>Contact Number</td>
+            <td>{{details.identity.contact_number}}</td>
+        </tr>
+
+        <tr>
+          <td>Emergency Contact Number</td>
+            <td>{{details.identity.emergency_contact_number}}</td>
+        </tr>
+
+   
+        <tr>
+          <td>Date of Birth</td>
+            <td>{{details.identity.dob | date}}</td>
         </tr>
       </table>
     </div>
