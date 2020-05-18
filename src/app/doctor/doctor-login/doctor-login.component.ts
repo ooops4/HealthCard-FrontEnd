@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DoctorLoginComponent{
 
-  
+  error: string;
   credentials = {
     email:'',
     password: ''
@@ -19,8 +19,13 @@ export class DoctorLoginComponent{
   login(){
     let user = {email: this.credentials.email, password: this.credentials.password}
     this.auth.login(user).subscribe(response => {
-      this.auth.loginData(response);
-      this.router.navigate(['/doctor/dashboard'])
+      if(response.token){
+        this.auth.loginData(response);
+        this.router.navigate(['/doctor/dashboard'])
+      }
+      else {
+        this.error = response.result;
+      }
     })
   }
 }

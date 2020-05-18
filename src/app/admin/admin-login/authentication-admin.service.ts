@@ -55,7 +55,6 @@ export class AuthenticationAdminService {
     if (token) {
       payload = token.split('.')[1]
       payload = window.atob(payload)
-      // console.log(window.atob(payload))
       return JSON.parse(payload)
     } else {
       return null
@@ -75,10 +74,6 @@ export class AuthenticationAdminService {
   public AddUser(user: NewUserDetails): Observable<any> {
     const formData = new FormData;
     for (const [key, value] of Object.entries(user)) {
-      // if(key =='profile_photo'){
-      //   continue;
-      // }
-      // console.log(key,value)
       formData.append(key, value);
     }
     console.log(formData);
@@ -105,6 +100,6 @@ export class AuthenticationAdminService {
   public logout(): void {
     this.token = ''
     window.localStorage.removeItem('admintoken')
-    this.router.navigateByUrl('/admin/login')
+    this.router.navigateByUrl('')
   }
 }

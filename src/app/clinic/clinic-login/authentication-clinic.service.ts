@@ -50,7 +50,7 @@ export interface AddClinic {
 interface loginData {
   _id: string,
   token: string,
-  name: string
+  clinic_name: string
 }
 
 
@@ -73,15 +73,15 @@ export class AuthenticationClinicService {
   saveData(data: loginData) {
     localStorage.setItem('token',data.token);
     localStorage.setItem('_id',data._id);
-    localStorage.setItem('name',data.name);
+    localStorage.setItem('clinic_name',data.clinic_name);
   }
   
   getData() {
     const token = localStorage.getItem('token');
     const _id = localStorage.getItem('_id');
-    const name = localStorage.getItem('name');
-    if (token && _id && name) {
-      return { token: token, _id: _id, name: name }
+    const clinic_name = localStorage.getItem('clinic_name');
+    if (token && _id && clinic_name) {
+      return { token: token, _id: _id, clinic_name: clinic_name }
     }
     return null;
   }
@@ -99,11 +99,6 @@ export class AuthenticationClinicService {
     }
     return true;
   }
-
-  //   public AddClinic(clinic: ClinicDetails): Observable<any> {
-  //     return this.httpClient.post(`http://127.0.0.1:5000/api/clinic/register`, clinic)
-  // }
-
 
   public AddClinic(clinic: ClinicDetails): Observable<any> {
     const formData = new FormData;

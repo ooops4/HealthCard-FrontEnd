@@ -34,7 +34,7 @@ export interface AddHospital {
 interface loginData {
   _id: string,
   token: string,
-  name: string
+  hospital_name: string
 }
 
 
@@ -57,15 +57,15 @@ export class AuthenticationHospitalService {
   saveData(data: loginData) {
     localStorage.setItem('token',data.token);
     localStorage.setItem('_id',data._id);
-    localStorage.setItem('name',data.name);
+    localStorage.setItem('hospital_name',data.hospital_name);
   }
   
   getData() {
     const token = localStorage.getItem('token');
     const _id = localStorage.getItem('_id');
-    const name = localStorage.getItem('name');
-    if (token && _id && name) {
-      return { token: token, _id: _id, name: name }
+    const hospital_name = localStorage.getItem('hospital_name');
+    if (token && _id && hospital_name) {
+      return { token: token, _id: _id, hospital_name: hospital_name }
     }
     return null;
   }

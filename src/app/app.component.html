@@ -13,19 +13,29 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" *ngIf="auth.isLoggedIn()" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="nav-link" *ngIf="authUser.isLoggedIn()" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
     </ul>
       <ul class="navbar-nav">
         <!-- <a *ngIf="!auth.isLoggedIn() && !authAdmin.isLoggedIn()" class="nav-link" routerLink="/login" >Login</a> -->
-        <a *ngIf="authAdmin.isLoggedIn() && !auth.isLoggedIn() " class="nav-link" routerLink="/admin/dashboard">Dashboard</a>
+        <a *ngIf="authAdmin.isLoggedIn() && 
+                  !authUser.isLoggedIn() && 
+                  !authAdmin.isLoggedIn() &&
+                  !authMedical.isLoggedIn() &&
+                  !authLaboratory.isLoggedIn() &&
+                  !authHospital.isLoggedIn()" 
+                  class="nav-link" routerLink="/admin/dashboard">Dashboard</a>
         <!-- <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/admin-login" >Admin Login</a> -->
         <!-- <a *ngIf="!auth.isLoggedIn()" class="nav-link" routerLink="/register">Register</a> -->
         <!-- <a *ngIf="auth.isLoggedIn()-" class="nav-link" routerLink="/user">Users List</a> -->
-        <a *ngIf="auth.isLoggedIn()" class="nav-link" routerLink="/profile" >Welcome {{ auth.getUserDetails()?.identity.first_name }}</a>
-        <a *ngIf="auth.isLoggedIn()" class="nav-link" routerLink="" (click)="auth.logout()">Logout user</a>
-        <a *ngIf="authAdmin.isLoggedIn()" class="nav-link" routerLink="" (click)="authAdmin.logout()">Logout admin</a>
-        <a *ngIf="authDoctor.isLoggedIn()" class="nav-link" routerLink="" (click)="authDoctor.logout()">Logout Doctor</a>
+        <a *ngIf="authUser.isLoggedIn()" class="nav-link" routerLink="/profile" >Welcome {{ authUser.getUserDetails()?.identity.first_name }}</a>
+        <a *ngIf="authUser.isLoggedIn()" class="nav-link" routerLink="" (click)="authUser.logout()">Logout User</a>
+        <a *ngIf="authAdmin.isLoggedIn()" class="nav-link" routerLink="" (click)="authAdmin.logout()">Logout Admin</a>
+        <a *ngIf="authDoctor.isLoggedIn()" class="nav-link" routerLink="" (click)="authDoctor.logout()">Logout</a>
+        <a *ngIf="authHospital.isLoggedIn()" class="nav-link" routerLink="" (click)="authHospital.logout()">Logout</a>
+        <a *ngIf="authClinic.isLoggedIn()" class="nav-link" routerLink="" (click)="authClinic.logout()">Logout</a>
+        <a *ngIf="authLaboratory.isLoggedIn()" class="nav-link" routerLink="" (click)="authLaboratory.logout()">Logout</a>
+        <a *ngIf="authMedical.isLoggedIn()" class="nav-link" routerLink="" (click)="authMedical.logout()">Logout</a>
         </ul>
   </div>
 </nav>

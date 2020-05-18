@@ -11,6 +11,7 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
           </div>
+          <span class="text-danger" *ngIf="error">{{error}}</span>
           <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
         </form>
       </div>

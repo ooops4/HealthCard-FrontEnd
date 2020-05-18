@@ -33,7 +33,7 @@ export interface AddDoctor {
 interface loginData {
   _id: string,
   token: string,
-  name: string
+  doctor_name: string
 }
 
 
@@ -42,7 +42,7 @@ export class AuthenticationDoctorService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(user:{email:string, password: string}) {
-    return this.httpClient.post(`http://127.0.0.1:5000/api/doctor/login`, user);
+    return this.httpClient.post<any>(`http://127.0.0.1:5000/api/doctor/login`, user);
   }
 
   logout(){
@@ -56,15 +56,15 @@ export class AuthenticationDoctorService {
   saveData(data: loginData) {
     localStorage.setItem('token',data.token);
     localStorage.setItem('_id',data._id);
-    localStorage.setItem('name',data.name);
+    localStorage.setItem('doctor_name',data.doctor_name);
   }
   
   getData() {
     const token = localStorage.getItem('token');
     const _id = localStorage.getItem('_id');
-    const name = localStorage.getItem('name');
-    if (token && _id && name) {
-      return { token: token, _id: _id, name: name }
+    const doctor_name = localStorage.getItem('doctor_name');
+    if (token && _id && doctor_name) {
+      return { token: token, _id: _id, doctor_name: doctor_name }
     }
     return null;
   }
