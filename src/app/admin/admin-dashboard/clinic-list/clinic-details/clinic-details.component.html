@@ -1,0 +1,95 @@
+<div class="container">
+    <h2>Clinic Details</h2>
+    
+    <table class="table table-dark">
+      
+    
+        <tr>
+            <th>Clinic Name</th>
+            <td>{{clinicDetails.clinic_name}}</td>
+        </tr>
+
+        <tr>
+            <th>License Number</th>
+            <td>{{clinicDetails.license_number}}</td>
+        </tr>
+
+        <tr>
+            <th>Established Date</th>
+            <td>{{clinicDetails.established_date | date}}</td>
+        </tr>
+
+        <tr>
+            <th>Doctor Name</th>
+            <td>{{clinicDetails.doctor_name}}</td>
+        </tr>
+          
+        <tr>
+            <th>Qualification</th>
+            <td>{{clinicDetails.qualification}}</td>
+        </tr>
+
+        <tr>
+            <th>Gender</th>
+            <td>{{clinicDetails.gender}}</td>
+        </tr>
+
+        <tr>
+            <th>Age</th>
+            <td>{{clinicDetails.age}}</td>
+        </tr>
+
+        <tr>
+            <th>Date of Birth</th>
+            <td>{{clinicDetails.dob | date}}</td>
+        </tr>
+
+        <tr>
+            <th>Emergency Contact Number</th>
+            <td>{{clinicDetails.emergency_contact_number}}</td>
+        </tr>
+
+        <tr>
+            <th>Email Address</th>
+            <td>{{clinicDetails.email}}</td>
+        </tr>
+   
+        <tr>
+            <th>Street</th>
+            <td>{{clinicDetails.street}}</td>
+        </tr>
+   
+        <tr>
+            <th>City</th>
+            <td>{{clinicDetails.city}}</td>
+        </tr>
+   
+        <tr>
+            <th>State</th>
+            <td>{{clinicDetails.state}}</td>
+        </tr>
+   
+        <tr>
+            <th>Pincode</th>
+            <td>{{clinicDetails.pincode}}</td>
+        </tr>
+   
+        <tr>
+            <th>Landmark</th>
+            <td>{{clinicDetails.landmark}}</td>
+        </tr>
+   
+      
+   
+    </table>
+
+    <!-- <button>
+    <pdf-viewer src={{clinicDetails.clinic_document}} [external-link-target]="'blank'" ></pdf-viewer>
+</button> -->
+
+<!-- <pdf-viewer id="pdf-report-id" class="pdf-container" src={{clinicDetails.clinic_document}} [original-size]="false" [fit-to-page]="true"
+    [render-text]="true" [zoom]="1" (text-layer-rendered)="textLayerRendered($event)">
+</pdf-viewer> -->
+ 
+ 
+</div>

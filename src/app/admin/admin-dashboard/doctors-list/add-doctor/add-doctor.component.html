@@ -6,99 +6,261 @@
           <hr>
           <h3 class="h5 mb-3 font-weight-normal">Basic Information</h3>
           
-            <!-- Name -->
+            <!-- First Name -->
            
               <div class="form-group">
-                <label for="name">First Name</label>
-                <input type="text" class="form-control" formControlName="first_name" placeholder="Enter your first name" >
-              </div>
-              <div class="form-group">
-                <label for="name">Last Name</label>
-                <input type="text" class="form-control" formControlName="last_name" placeholder="Enter your last name" >
-              </div>
-      
-                <!-- EMAIL -->
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" formControlName="first_name" 
+                class="form-control" minlength="2" maxlength="30"
+                [class.is-invalid]="registrationForm.get('first_name').invalid && registrationForm.get('first_name').touched" 
+                placeholder="Enter your first name" >
+
+              <small [class.d-none]="registrationForm.get('first_name').valid || registrationForm.get('first_name').untouched" class="text-danger"> First Name is required </small>
+
               </div>
 
-               <!-- Password -->
-               <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control"  placeholder="Password"formControlName="password">
+            <!-- Last Name -->
+
+              <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" formControlName="last_name" 
+                class="form-control" minlength="2" maxlength="30"
+                [class.is-invalid]="registrationForm.get('last_name').invalid && registrationForm.get('last_name').touched" 
+                placeholder="Enter your last name" >
+
+              <small [class.d-none]="registrationForm.get('last_name').valid || registrationForm.get('last_name').untouched" class="text-danger"> Last Name is required </small>
+
               </div>
+
+                
+      
+                <!-- EMAIL -->
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" [class.is-invalid]="registrationForm.get('email').invalid &&
+              registrationForm.get('email').touched" class="form-control"
+              formControlName="email" placeholder="Enter email" autocomplete="off">
+
+              <small [class.d-none]="registrationForm.get('email').valid ||
+              registrationForm.get('email').untouched"
+              class="text-danger"> Email is required </small>
+            </div>
+
+             <!-- Password -->
+             <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password"  minlength="8" 
+              maxlength="32"[class.is-invalid]="registrationForm.get('password').invalid &&
+              registrationForm.get('password').touched"
+              class="form-control"  data-toggle="tooltip" data-trigger="click hover focus" title="Password should contain atleast one&#013;capital letter&#013;small letter&#013;number&#013;one special character"  placeholder="Password" formControlName="password">
+
+              <small [class.d-none]="registrationForm.get('password').valid ||
+              registrationForm.get('password').untouched"
+              class="text-danger"> Password is required </small>
+            </div>
+
+            <!-- License NUMBER -->
+            
+            <div class="form-group">
+              <label for="license_number">License Number</label>
+              <input type="text"  [class.is-invalid]="registrationForm.get('license_number').invalid &&
+                                registrationForm.get('license_number').touched" class="form-control"
+                                  formControlName="license_number"
+                                  placeholder="Enter your License Number" >
+
+              <small [class.d-none]="registrationForm.get('license_number').valid ||
+                                      registrationForm.get('license_number').untouched"
+                                      class="text-danger">License Number is required </small>
+            </div>
 
 
             <!-- GENDER -->
               <div>    
                 <label for="Gender">Gender</label>
-             
 
-              <div class="custom-control custom-radio">
-                <input  type="radio" class="custom-control-input" id="Male" value="male" name="gender" formControlName="gender">
-                <label class="custom-control-label" for="Male">Male</label>
-              </div>    
-              <div class="custom-control custom-radio">
-                <input  type="radio" class="custom-control-input" id="Female" value="female" name="gender" formControlName="gender">
-                <label class="custom-control-label" for="Female">Female</label>
-              </div>    
-              </div>
-              
-                
-              <!-- Father Name -->
-            
-              <div class="form-group">
-                <label for="father_name">Fathers Name</label>
-                <input type="text" class="form-control" placeholder="Enter Father's Name" formControlName="father_name" >
-              </div>
-              <!-- Mothers Name -->
-              <div class="form-group">
-                <label for="mother_name">Mothers Name</label>
-                <input type="text" class="form-control" placeholder="Enter Mother's Name" formControlName="mother_name">
+                <div class="custom-control custom-radio">
+                  <input  type="radio" class="custom-control-input" id="Male" value="male" name="gender" formControlName="gender">
+                  <label class="custom-control-label" for="Male">Male</label>
+                </div>  
+
+                <div class="custom-control custom-radio">
+                  <input  type="radio" class="custom-control-input" id="Female" value="female" name="gender" formControlName="gender">
+                  <label class="custom-control-label" for="Female">Female</label>
+                </div>  
+                  
               </div>
 
-             
+               <!-- Date of Birth -->
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" [class.is-invalid]="registrationForm.get('dob').invalid &&
+                registrationForm.get('dob').touched" 
+                 class="form-control" max="maxDate" formControlName="dob">
+                  <small class="text-danger" [class.d-none]="!registrationForm.get('dob').errors?.greaterDate ||
+                  registrationForm.get('dob').untouched">Date should not be greater than today</small>
+                 <small [class.d-none]="!registrationForm.get('dob').errors?.required ||
+              registrationForm.get('dob').untouched"
+              class="text-danger"> Date of birth is required </small>
+            </div>
 
-              <!-- Contact number -->
-              <div class="form-group">
-                <label for="contact_number">Contact Number</label>
-                <input type="number" class="form-control" placeholder="Enter contact Number" formControlName="contact_number" >
-              </div>
-              <!-- Emergency Contact Number -->
-              <div class="form-group">
-                <label for="emergency_contact_number">Emergency Contact Number</label>
-                <input type="number" class="form-control" placeholder="Enter emergency contact number" formControlName="emergency_contact_number" >
-              </div>
-              
-               <!-- Age -->
-               <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" class="form-control" placeholder="Enter age" formControlName="age" >
-              </div>
+            <!-- Age -->
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" 
+               
+              [class.is-invalid]="registrationForm.get('age').invalid &&
+              registrationForm.get('age').touched" 
+              class="form-control" placeholder="Enter age" formControlName="age" >
 
+              <small [class.d-none]="registrationForm.get('age').valid ||
+              registrationForm.get('age').untouched"
+              class="text-danger"> Age is required </small>
+            </div>
+       
               <h3 class="h5 mb-3 font-weight-normal">Qualifications</h3>
               <hr>
+
               <!-- Qualification -->
-              <div class="form-group">
-                <label for="qualification">Qualification</label>
-                <select formControlName="qualification" class="form-control" (change)="changeQualification($event)">
-                    <option disabled>Select Qualification</option>
-                    <option *ngFor="let qualification of qualificationList">{{qualification}}</option>
-                </select>
-              </div>
-              
-<!-- 
-                Specialisation 
-               <div class="form-groups">
-                <label for="specialisation">Specialisation</label>
-                <input type="number" class="form-control" placeholder="Enter age" formControlName="age" >
-              </div> -->
+          <div class="form-group">
+            <label for="qualification">Qualification</label>
+            <select formControlName="qualification"  [class.is-invalid]="registrationForm.get('qualification').invalid &&
+            registrationForm.get('qualification').touched"
+            class="form-control">
+                <option disabled>Select Qualification</option>
+                <option *ngFor="let qualification of qualificationList">{{qualification}}</option>
+            </select>
+
+            <small [class.d-none]="registrationForm.get('qualification').valid ||
+            registrationForm.get('qualification').untouched"
+            class="text-danger"> Qualification is required </small>
+          </div>
+
+
+          <!-- Doctor Home ADDRESS -->
+          <h3 class="h5 mb-3 font-weight-normal">Permanent Address</h3>
+          <hr>
+            <!-- ADDRESS STREET -->
+        
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" minlength="5" 
+            maxlength="50"[class.is-invalid]="registrationForm.get('street').invalid &&
+                              registrationForm.get('street').touched" class="form-control"
+                                formControlName="street"
+                                placeholder="Enter your street" >
+            <small [class.d-none]="registrationForm.get('street').valid ||
+                                    registrationForm.get('street').untouched"
+                                    class="text-danger"> Street is required </small>
+          </div>
+
+
+          
+            <!-- ADDRESS CITY -->
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text"  minlength="2" 
+            maxlength="25"[class.is-invalid]="registrationForm.get('city').invalid &&
+                              registrationForm.get('city').touched" class="form-control"
+                                formControlName="city"
+                                placeholder="Enter your city" >
+            <small [class.d-none]="registrationForm.get('city').valid ||
+                                    registrationForm.get('city').untouched"
+                                    class="text-danger"> City is required </small>
+          </div>
+
+          <!-- ADDRESS LANDMARK -->
+
+        <div class="form-group">
+          <label for="landmark">Landmark</label>
+          <input type="text"  minlength="2" 
+          maxlength="20"[class.is-invalid]="registrationForm.get('landmark').invalid &&
+                            registrationForm.get('landmark').touched" class="form-control"
+                              formControlName="landmark"
+                              placeholder="Enter your landmark" >
+          <small [class.d-none]="registrationForm.get('landmark').valid ||
+                                  registrationForm.get('landmark').untouched"
+                                  class="text-danger"> Landmark is required </small>
+        </div>
+
+        <!-- ADDRESS STATE -->
+        <div class="form-group">
+          <label for="state">State</label>
+          <select formControlName="state"  [class.is-invalid]="registrationForm.get('state').invalid &&
+          registrationForm.get('state').touched"
+          class="form-control">
+              <option disabled>Select State</option>
+              <option *ngFor="let addressState of state_list">{{addressState}}</option>
+          </select>
+
+          <small [class.d-none]="registrationForm.get('state').valid ||
+          registrationForm.get('state').untouched"
+          class="text-danger"> State is required </small>
+        </div>
+
+          
+            <!-- ADDRESS PINCODE -->
+        
+          <div class="form-group">
+            <label for="pincode">Pincode</label>
+            <input type="number"  minlength="6" 
+            maxlength="6" [class.is-invalid]="registrationForm.get('pincode').invalid &&
+                              registrationForm.get('pincode').touched" class="form-control"
+                                formControlName="pincode"
+                                placeholder="Enter your last name" >
+            <small [class.d-none]="registrationForm.get('pincode').valid ||
+                                    registrationForm.get('pincode').untouched"
+                                    class="text-danger"> Pincode is required </small>
+          </div>
 
 
 
+           <!-- Contact number -->
+           <div class="form-group">
+            <label for="contact_number">Contact Number</label>
+            <input type="number"   minlength="10" 
+            maxlength="10"[class.is-invalid]="registrationForm.get('contact_number').invalid &&
+            registrationForm.get('contact_number').touched"
+             class="form-control" placeholder="Contact Number" formControlName="contact_number" >
 
-          <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!registrationForm.valid">Add User</button>
+             <small [class.d-none]="registrationForm.get('contact_number').valid ||
+            registrationForm.get('contact_number').untouched"
+            class="text-danger"> Contact Number is required </small>
+          </div>
+
+
+          <!-- Emergency Contact Number -->
+          <div class="form-group">
+            <label for="emergency_contact_number">Emergency Contact Number</label>
+            <input type="number"  minlength="10" 
+            maxlength="10"[class.is-invalid]="registrationForm.get('emergency_contact_number').invalid &&
+            registrationForm.get('emergency_contact_number').touched"
+             class="form-control" placeholder="Enter emergency contact number" formControlName="emergency_contact_number" >
+
+            <small [class.d-none]="registrationForm.get('emergency_contact_number').valid ||
+            registrationForm.get('emergency_contact_number').untouched"
+            class="text-danger"> Emergency Contact Number is required </small>
+          </div>
+          
+
+
+            <!-- Doctor Document -->
+            <div class="form-group">
+              <label for="doctor_document">Clinic Document</label>
+                  <div class="custom-file">
+                  <label for="doctor_document" class="custom-file-label">Clinic Document </label>
+                  <input type="file" class="custom-file-input"
+                    [class.is-invalid]="registrationForm.get('doctor_document').invalid &&
+                  registrationForm.get('doctor_document').touched" (change)="selectFile($event)" accept=".pdf, .doc, .docx"> 
+
+                  <small [class.d-none]="registrationForm.get('doctor_document').valid ||
+                  registrationForm.get('doctor_document').untouched"
+                  class="text-danger"> Clinic Document is required </small>
+            </div>
+          </div>
+
+            
+              <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!registrationForm.valid">Add Doctor</button>
         </form>
       </div>
     </div>

@@ -36,12 +36,12 @@ export class AddClinicComponent {
 
 
   registrationForm = this.fb.group({
-    clinic_name: ['', Validators.required],
+    clinic_name: ['', [Validators.required,Validators.pattern("^[a-zA-Z\s]*$")]],
     email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     password: ['', [Validators.required,Validators.min(8),Validators.max(16),Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
     license_number: ['',Validators.required],
     established_date: ['',[Validators.required,this.DateValidator]],
-    doctor_name: ['', Validators.required],
+    doctor_name: ['',[Validators.required,Validators.pattern("^[a-zA-Z\s]*$")]],
     gender:['',Validators.required],
     age:['',Validators.required],
     contact_number: ['',Validators.required],

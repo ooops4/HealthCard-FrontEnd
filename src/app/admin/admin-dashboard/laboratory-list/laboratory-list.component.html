@@ -1,1 +1,18 @@
-<p>laboratory-list works!</p>
+<div class="container">
+    <h2>List of Laboratory</h2>
+    <button type="button" class="btn btn-dark" (click)="NewLaboratory()">New Laboratory</button>
+    <br>
+    <br>
+    <div class="search-users">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Search for any Laboratory by name ">
+        <br>
+    </div>
+<table class="table table-dark table-hover">
+    <tbody>
+    <tr *ngFor="let laboratory of laboratories | filter:searchText">
+                
+         <td [routerLink]="['/admin/laboratory/details/',laboratory._id]"> {{laboratory.laboratory_name}}</td>
+    </tr>
+</tbody> 
+</table> 
+</div>

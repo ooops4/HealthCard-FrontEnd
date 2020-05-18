@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-medical-store-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicalStoreListComponent implements OnInit {
 
-  constructor() { }
+  medicalstores:string
+  searchText= this.medicalstores
+
+
+  constructor(private httpClient: HttpClient, private route: Router)  { }
 
   ngOnInit(): void {
+    
+    this.httpClient.get('http://127.0.0.1:5000/api/medicalstore/users').subscribe(users => (this.medicalstores = users as string))
+    console.log(this.medicalstores)
   }
 
+
+  
+  NewMedicalStore(){
+    this.route.navigateByUrl('/admin/medical/add-medical-store')
+  }
 }

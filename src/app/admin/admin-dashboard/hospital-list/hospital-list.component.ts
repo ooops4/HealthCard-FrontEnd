@@ -8,22 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./hospital-list.component.css']
 })
 export class HospitalListComponent implements OnInit {
-  users:string
-  searchText= this.users
+  hospitals:string
+  searchText= this.hospitals
 
 
   constructor(private httpClient: HttpClient, private route: Router)  { }
 
   ngOnInit(): void {
     
-    this.httpClient.get('http://127.0.0.1:5000/api/hospital/list').subscribe(users => (this.users = users as string))
-    console.log(this.users)
+    this.httpClient.get('http://127.0.0.1:5000/api/hospital/users').subscribe(users => (this.hospitals = users as string))
+    console.log(this.hospitals)
   }
 
-  getUsers():void{
-    this.httpClient.get('http://127.0.0.1:5000/api/hospital/list').subscribe(users => (this.users = users as string))
 
-  }
 
 
 

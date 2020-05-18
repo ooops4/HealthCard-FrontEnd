@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-laboratory-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LaboratoryListComponent implements OnInit {
 
-  constructor() { }
+  laboratories:string
+  searchText= this.laboratories
+
+
+  constructor(private httpClient: HttpClient, private route: Router)  { }
 
   ngOnInit(): void {
+    
+    this.httpClient.get('http://127.0.0.1:5000/api/laboratory/users').subscribe(users => (this.laboratories = users as string))
+    console.log(this.laboratories)
   }
 
+
+  
+  NewLaboratory(){
+    this.route.navigateByUrl('/admin/laboratory/add-laboratory')
+  }
 }

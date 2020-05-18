@@ -23,7 +23,6 @@ export interface ClinicDetails {
   contact_number:number,
   emergency_contact_number:number
   clinic_document:File
-
 }
 
 export interface AddClinic {

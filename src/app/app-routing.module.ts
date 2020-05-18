@@ -40,6 +40,10 @@ import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/
 import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
 import { CaseDetailsComponent } from './doctor/doctor-dashboard/cases/case-details/case-details.component';
 import { ClinicDetailsComponent } from './admin/admin-dashboard/clinic-list/clinic-details/clinic-details.component';
+import { HospitalDetailsComponent } from './admin/admin-dashboard/hospital-list/hospital-details/hospital-details.component';
+import { LaboratoryDetailsComponent } from './admin/admin-dashboard/laboratory-list/laboratory-details/laboratory-details.component';
+import { DoctorDetailsComponent } from './admin/admin-dashboard/doctors-list/doctor-details/doctor-details.component';
+import { MedicalStoreDetailsComponent } from './admin/admin-dashboard/medical-store-list/medical-store-details/medical-store-details.component';
 
 
 
@@ -70,18 +74,22 @@ const routes: Routes = [
   //ADMIN HOSPITAL
   { path: 'admin/hospital/hospital-list', component: HospitalListComponent },
   { path: 'admin/hospital/add-hospital', component: AddHospitalComponent},
+  { path: 'admin/hospital/details/:hospital_id', component: HospitalDetailsComponent},
 
   //ADMIN LABORATORY
   { path: 'admin/laboratory/laboratory-list', component: LaboratoryListComponent},
   { path: 'admin/laboratory/add-laboratory', component: AddLaboratoryComponent},
+  { path: 'admin/laboratory/details/:labortory_id', component: LaboratoryDetailsComponent},
 
   //ADMIN MEDICAL
   { path: 'admin/medical/medical-store-list', component: MedicalStoreListComponent},
   { path: 'admin/medical/add-medical-store', component: AddMedicalStoreComponent},
+  { path: 'admin/medical/details/:medical_id', component: MedicalStoreDetailsComponent},
 
   //ADMIN DOCTOR
   { path: 'admin/doctor/doctor-list', component: DoctorsListComponent},
   { path: 'admin/doctor/add-doctor', component: AddDoctorComponent},
+  { path: 'admin/doctor/details/:doctor_id', component: DoctorDetailsComponent},
 
   //ADMIN CLINIC
 

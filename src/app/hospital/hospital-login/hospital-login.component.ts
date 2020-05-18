@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HospitalTokenPayload, AuthenticationHospitalService } from './authentication-hospital.service';
+import {  AuthenticationHospitalService } from './authentication-hospital.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,23 +9,17 @@ import { Router } from '@angular/router';
 })
 export class HospitalLoginComponent{
 
-  credentials: HospitalTokenPayload = {
-    _id: '',
-    hospital_name:'',
-    first_name: '',
-    last_name: '',
+  credentials = {
     email:'',
-    password: '',
-    gender: '',
-    age: ''
+    password: ''
   }
 
-  constructor(private auth:AuthenticationHospitalService, private route:Router) { }
+  constructor(private auth:AuthenticationHospitalService, private router: Router) { }
   login(){
-    this.auth.login(this.credentials).subscribe(
-    () => {
-      this.route.navigateByUrl('/hospital/dashboard')
-    },
-    err =>
-      console.error(err)
-    )}}
+    let user = {email: this.credentials.email, password: this.credentials.password}
+    this.auth.login(user).subscribe(response => {
+      this.auth.loginData(response);
+      this.router.navigate(['/hospital/dashboard'])
+    })
+  }
+}

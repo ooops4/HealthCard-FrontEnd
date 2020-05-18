@@ -57,6 +57,12 @@ import { AuthGuardClinicService } from './clinic/clinic-login/auth-guard-clinic.
 import { AuthenticationClinicService } from './clinic/clinic-login/authentication-clinic.service';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { DoctorDetailsComponent } from './admin/admin-dashboard/doctors-list/doctor-details/doctor-details.component';
+import { HospitalDetailsComponent } from './admin/admin-dashboard/hospital-list/hospital-details/hospital-details.component';
+import { LaboratoryDetailsComponent } from './admin/admin-dashboard/laboratory-list/laboratory-details/laboratory-details.component';
+import { MedicalStoreDetailsComponent } from './admin/admin-dashboard/medical-store-list/medical-store-details/medical-store-details.component';
+import { MedicalstoreLoginComponent } from './medicalstore/medicalstore-login/medicalstore-login.component';
+import { MedicalstoreDashboardComponent } from './medicalstore/medicalstore-dashboard/medicalstore-dashboard.component';
 
 
 
@@ -102,6 +108,12 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     ClinicDashboardComponent,
     ClinicLoginComponent,
     ClinicDetailsComponent,
+    DoctorDetailsComponent,
+    HospitalDetailsComponent,
+    LaboratoryDetailsComponent,
+    MedicalStoreDetailsComponent,
+    MedicalstoreLoginComponent,
+    MedicalstoreDashboardComponent,
 
   ],
   imports: [

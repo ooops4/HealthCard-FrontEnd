@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, AbstractControl } from '@angular/forms';
 import { AuthenticationDoctorService, AddDoctor } from 'src/app/doctor/doctor-login/authentication-doctor.service';
 import { Router } from '@angular/router';
 // import { NewDoctorDetails } from './new-doctor-details';
@@ -14,6 +14,19 @@ export class AddDoctorComponent{
   qualification : string;
   qualificationList: any = ['MBBS', 'BDS', 'ENT']
 
+  state: string;
+  state_list: any = ['Andaman and Nicobar Islands','Andhra Pradesh',
+                    'Arunachal Pradesh','Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 
+                    'Dadra and Nagar Haveli','Daman and Diu','Delhi',
+                    'Goa','Gujarat','Haryana','Himachal Pradesh',
+                    'Jammu and Kashmir' ,'Jharkhand' ,'Karnataka',
+                    'Kerala','Lakshadweep','Madhya Pradesh','Maharashtra','Manipur',
+                    'Meghalaya','Mizoram','Nagaland','Odisha' ,'Pondicherry',
+                    'Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura',
+                    'Uttar Pradesh' ,'Uttarakhand','West Bengal'
+                    ]
+
+
   changeQualification(e) {
     console.log(e.target.value);
   }
@@ -24,27 +37,53 @@ export class AddDoctorComponent{
 
 
   registrationForm = this.fb.group({
-    first_name: ['', Validators.required],
-    last_name: ['', Validators.required],
+    first_name: ['',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
+    last_name: ['',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
     email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     password: ['', [Validators.required,Validators.min(8),Validators.max(16),Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
-    father_name:['',Validators.required],
-    mother_name:['',Validators.required],
-    age:['',[Validators.required,Validators.max(120),Validators.min(0)]],
-    contact_number:['',Validators.required],
-    emergency_contact_number:['',Validators.required],
+    license_number: ['',Validators.required],
     gender:['',Validators.required],
-    qualification:['', Validators.required]
+    dob: ['',[ Validators.required,this.DateValidator]],
+    age:['',Validators.required],
+    qualification: ['', Validators.required],
+    street: ['', Validators.required],
+    city: ['',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
+    state: ['', Validators.required],
+    pincode: ['', Validators.required],
+    landmark: ['', Validators.required],
+    contact_number: ['',Validators.required],
+    emergency_contact_number: ['',Validators.required],
+    doctor_document: ['', Validators.required],
    });
 
 
+   selectFile(event) {
+    const doctor_document = (event.target as HTMLInputElement).files[0];
+    console.log(doctor_document);
+    this.registrationForm.get('doctor_document').patchValue(doctor_document);
+    this.registrationForm.updateValueAndValidity();
+    console.log(this.registrationForm.value);
+  }
 
 
+
+   DateValidator(control: AbstractControl): {[key:string]:boolean} | null {
+    const dob = control;
+    if (dob.pristine) {
+      return null;
+    }
+    const dobValue = new Date(dob.value)
+    if( dobValue > new Date()){
+      dob.setValue(null);
+      return {'greaterDate': true}
+    }
+    else{
+      return null;
+    }
+  
+  }
 
   NewDoctorcredentials: AddDoctor ;
-
-
-
   onSubmit(){
     this.NewDoctorcredentials = this.registrationForm.value;
     this.auth.AddUser(this.NewDoctorcredentials).subscribe(
