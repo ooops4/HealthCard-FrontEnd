@@ -16,7 +16,7 @@ export class DoctorsListComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.httpClient.get('http://127.0.0.1:5000/api/doctor/users').subscribe(users => (this.doctors = users as string))
+    this.httpClient.get('http://127.0.0.1:5000/api/doctor/doctor-list').subscribe(users => (this.doctors = users as string))
     console.log(this.doctors)
   }
 

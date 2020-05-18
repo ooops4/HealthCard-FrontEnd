@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { NewCaseDetailsModel } from './new-case-details-model';
+import { NewCaseDetailsModel } from './doctor-new-case-details-model';
 import { FormBuilder, Validators, AbstractControl, FormGroup, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-case',
-  templateUrl: './new-case.component.html',
-  styleUrls: ['./new-case.component.css']
+  templateUrl: './doctor-new-case.component.html',
+  styleUrls: ['./doctor-new-case.component.css']
 })
-export class NewCaseComponent implements OnInit{
+export class DoctorNewCaseComponent implements OnInit{
 
   name = localStorage.getItem('name');
   medicine_name: string;

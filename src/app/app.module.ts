@@ -32,12 +32,9 @@ import { AddMedicalStoreComponent } from './admin/admin-dashboard/medical-store-
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UploadComponent } from './upload/upload.component';
 import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
-import { NewPatientComponent } from './doctor/doctor-dashboard/new-patient/new-patient.component';
 import { DoctorLoginComponent } from './doctor/doctor-login/doctor-login.component';
-import { PatientListComponent } from './doctor/doctor-dashboard/patient-list/patient-list.component';
-import { PatientDetailsComponent } from './doctor/doctor-dashboard/patient-details/patient-details.component';
-import { NewCaseComponent } from './doctor/doctor-dashboard/cases/new-case/new-case.component';
-import { ViewCasesComponent } from './doctor/doctor-dashboard/cases/view-cases/view-cases.component';
+import { DoctorPatientDetailsComponent } from './doctor/doctor-dashboard/doctor-patient-details/doctor-patient-details.component';
+import { DoctorViewCasesComponent } from './doctor/doctor-dashboard/cases/doctor-view-cases/doctor-view-cases.component';
 import { AuthGuardDoctorService } from './doctor/doctor-login/auth-guard-doctor.service';
 import { AuthenticationDoctorService } from './doctor/doctor-login/authentication-doctor.service';
 import { HospitalDashboardComponent } from './hospital/hospital-dashboard/hospital-dashboard.component';
@@ -47,7 +44,6 @@ import { AuthGuardHospitalService } from './hospital/hospital-login/auth-guard-h
 import { HospitalViewCasesComponent } from './hospital/hospital-dashboard/cases/hospital-view-cases/hospital-view-cases.component';
 import { HospitalNewCaseComponent } from './hospital/hospital-dashboard/cases/hospital-new-case/hospital-new-case.component';
 import { HospitalNewPatientComponent } from './hospital/hospital-dashboard/hospital-new-patient/hospital-new-patient.component';
-import { CaseDetailsComponent } from './doctor/doctor-dashboard/cases/case-details/case-details.component';
 import { LaboratoryDashboardComponent } from './laboratory/laboratory-dashboard/laboratory-dashboard.component';
 import { LaboratoryLoginComponent } from './laboratory/laboratory-login/laboratory-login.component';
 import { ClinicDashboardComponent } from './clinic/clinic-dashboard/clinic-dashboard.component';
@@ -63,6 +59,19 @@ import { LaboratoryDetailsComponent } from './admin/admin-dashboard/laboratory-l
 import { MedicalStoreDetailsComponent } from './admin/admin-dashboard/medical-store-list/medical-store-details/medical-store-details.component';
 import { MedicalstoreLoginComponent } from './medicalstore/medicalstore-login/medicalstore-login.component';
 import { MedicalstoreDashboardComponent } from './medicalstore/medicalstore-dashboard/medicalstore-dashboard.component';
+import { ClinicNewCaseComponent } from './clinic/clinic-dashboard/cases/clinic-new-case/clinic-new-case.component';
+import { ClinicCaseDetailsComponent } from './clinic/clinic-dashboard/cases/clinic-case-details/clinic-case-details.component';
+import { ClinicViewCasesComponent } from './clinic/clinic-dashboard/cases/clinic-view-cases/clinic-view-cases.component';
+import { ClinicNewPatientComponent } from './clinic/clinic-dashboard/clinic-new-patient/clinic-new-patient.component';
+import { ClinicPatientDetailsComponent } from './clinic/clinic-dashboard/clinic-patient-details/clinic-patient-details.component';
+import { DoctorCaseDetailsComponent } from './doctor/doctor-dashboard/cases/doctor-case-details/doctor-case-details.component';
+import { DoctorNewCaseComponent } from './doctor/doctor-dashboard/cases/doctor-new-case/doctor-new-case.component';
+import { AuthGuardLaboratoryService } from './laboratory/laboratory-login/auth-guard-laboratory.service';
+import { AuthenticationLaboratoryService } from './laboratory/laboratory-login/authentication-Laboratory.service';
+import { AuthGuardMedicalStoreService } from './medicalstore/medicalstore-login/auth-guard-medicalstoreservice';
+import { AuthenticationMedicalStoreService } from './medicalstore/medicalstore-login/authentication-medicalstore.service';
+import { HospitalCaseDetailsComponent } from './hospital/hospital-dashboard/cases/hospital-case-details/hospital-case-details.component';
+
 
 
 
@@ -91,29 +100,38 @@ import { MedicalstoreDashboardComponent } from './medicalstore/medicalstore-dash
     AddMedicalStoreComponent,
     UploadComponent,
     DoctorDashboardComponent,
-    NewPatientComponent,
     DoctorLoginComponent,
-    PatientListComponent,
-    PatientDetailsComponent,
-    NewCaseComponent,
-    ViewCasesComponent,
     HospitalDashboardComponent,
     HospitalLoginComponent,
     HospitalViewCasesComponent,
     HospitalNewCaseComponent,
     HospitalNewPatientComponent,
-    CaseDetailsComponent,
     LaboratoryDashboardComponent,
     LaboratoryLoginComponent,
+    ClinicNewCaseComponent,
+    ClinicCaseDetailsComponent,
     ClinicDashboardComponent,
     ClinicLoginComponent,
+    ClinicViewCasesComponent,
     ClinicDetailsComponent,
+    ClinicViewCasesComponent,
+    ClinicCaseDetailsComponent,
+    ClinicNewPatientComponent,
+    ClinicPatientDetailsComponent,
     DoctorDetailsComponent,
     HospitalDetailsComponent,
     LaboratoryDetailsComponent,
     MedicalStoreDetailsComponent,
     MedicalstoreLoginComponent,
     MedicalstoreDashboardComponent,
+    DoctorCaseDetailsComponent,
+    DoctorNewCaseComponent,
+    DoctorViewCasesComponent,
+    DoctorPatientDetailsComponent,
+    HospitalCaseDetailsComponent,
+
+
+
 
   ],
   imports: [
@@ -133,7 +151,9 @@ import { MedicalstoreDashboardComponent } from './medicalstore/medicalstore-dash
               AuthGuardAdminService, AuthenticationAdminService, 
               AuthGuardDoctorService, AuthenticationDoctorService, 
               AuthenticationHospitalService, AuthGuardHospitalService,
-              AuthGuardClinicService, AuthenticationClinicService],
+              AuthGuardClinicService, AuthenticationClinicService,
+            AuthGuardLaboratoryService,AuthenticationLaboratoryService,
+          AuthGuardMedicalStoreService,AuthenticationMedicalStoreService],
               
   bootstrap: [AppComponent]
 })

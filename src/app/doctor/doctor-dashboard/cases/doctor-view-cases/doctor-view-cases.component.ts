@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { viewCases } from './viewCases';
+import { viewCases } from './doctor-viewCases';
 
 
 @Component({
   selector: 'app-view-cases',
-  templateUrl: './view-cases.component.html',
-  styleUrls: ['./view-cases.component.css']
+  templateUrl: './doctor-view-cases.component.html',
+  styleUrls: ['./doctor-view-cases.component.css']
 })
-export class ViewCasesComponent implements OnInit {
+export class DoctorViewCasesComponent implements OnInit {
 
   cases;
-  // searchText= this.cases
+  searchText= this.cases
   // viewCases: cases
   patientID:string
   // case_name:any

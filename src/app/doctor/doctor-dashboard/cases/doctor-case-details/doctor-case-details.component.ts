@@ -4,11 +4,11 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { CaseDetails } from './CaseDetails';
 
 @Component({
-  selector: 'app-case-details',
-  templateUrl: './case-details.component.html',
-  styleUrls: ['./case-details.component.css']
+  selector: 'app-hospital-case-details',
+  templateUrl: './doctor-case-details.component.html',
+  styleUrls: ['./doctor-case-details.component.css']
 })
-export class CaseDetailsComponent implements OnInit {
+export class DoctorCaseDetailsComponent implements OnInit {
 
   caseID:string
   caseDetails: any

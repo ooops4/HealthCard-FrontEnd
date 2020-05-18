@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Patient Cases</h2>
+  
+    <br>
+    <br>
+
+    <div class="search-users">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Search for any case by name ">
+        <br>
+    </div>
+
+   
+    <table class="table table-dark">
+        <tbody>
+    
+        <tr *ngFor="let case of cases">
+            <td [routerLink]="['/clinic/patient-details/case-details/',case._id]">{{case.disease}}</td>
+        </tr>
+    </tbody>
+    </table>
+
+</div>

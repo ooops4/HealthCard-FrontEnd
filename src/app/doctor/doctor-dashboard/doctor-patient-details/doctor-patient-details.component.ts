@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientDetails } from './patient-details';
+import { PatientDetails } from './doctor-patient-details';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-details',
-  templateUrl: './patient-details.component.html',
-  styleUrls: ['./patient-details.component.css']
+  templateUrl: './doctor-patient-details.component.html',
+  styleUrls: ['./doctor-patient-details.component.css']
 })
-export class PatientDetailsComponent implements OnInit {
+export class DoctorPatientDetailsComponent implements OnInit {
   patientID: string;
   patientDetails: PatientDetails;
 

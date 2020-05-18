@@ -13,9 +13,6 @@ export class DoctorDashboardComponent implements OnInit {
   NewPatient(){
     this.router.navigateByUrl('/doctor/new-patient')
   }
-    PatientList(){
-      this.router.navigateByUrl('/doctor/patient-list')
-    }
   ngOnInit(): void {
   }
 
