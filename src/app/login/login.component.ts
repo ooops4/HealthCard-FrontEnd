@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
+  error: string;
 
   credentials: TokenPayload = {
     _id: '',
@@ -17,13 +18,14 @@ export class LoginComponent{
   }
   constructor(private auth: AuthenticationService, private route:Router) { }
   login(){
-    this.auth.login(this.credentials).subscribe(
-    () => {
-      this.route.navigateByUrl('/user/profile')
-    },
-    err =>
-      console.error(err)
-    )}}
-    
-
+    this.auth.login(this.credentials).subscribe(response => {
+      if(response.token){
+        this.route.navigate(['/user/profile'])
+      }
+      else {
+        this.error = response.result;
+      }
+    })
+  }
+}
 

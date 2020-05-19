@@ -25,6 +25,6 @@ export class HospitalListComponent implements OnInit {
 
 
   NewHospital(){
-    this.route.navigateByUrl('/admin/doctor/add-doctor')
+    this.route.navigateByUrl('/admin/hospital/add-hospital')
   }
 }

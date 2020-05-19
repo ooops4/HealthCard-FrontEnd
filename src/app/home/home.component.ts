@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   LaboratoryLogin(){
-    this.router.navigateByUrl('doctor/login')
+    this.router.navigateByUrl('laboratory/login')
   }
 
   MedicalStoreLogin(){
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   ClinicLogin(){
-    this.router.navigateByUrl('medical/login')
+    this.router.navigateByUrl('clinic/login')
   }
 
 

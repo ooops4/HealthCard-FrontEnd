@@ -44,7 +44,7 @@ export class AuthenticationMedicalStoreService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(user:{email:string, password: string}) {
-    return this.httpClient.post(`http://127.0.0.1:5000/api/medical/login`, user);
+    return this.httpClient.post<any>(`http://127.0.0.1:5000/api/medical/login`, user);
   }
 
   logout(){

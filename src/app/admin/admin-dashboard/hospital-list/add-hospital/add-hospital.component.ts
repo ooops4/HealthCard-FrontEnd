@@ -37,14 +37,14 @@ export class AddHospitalComponent {
 
 
   registrationForm = this.fb.group({
-    clinic_name: ['', Validators.required],
+    hospital_name: ['', Validators.required],
     email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     password: ['', [Validators.required,Validators.min(8),Validators.max(16),Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
     license_number: ['',Validators.required],
     established_date: ['',[Validators.required,this.DateValidator]],
     contact_number: ['',Validators.required],
     emergency_contact_number: ['',Validators.required],
-    dob: ['',[ Validators.required,this.DateValidator]],
+    owner_name: ['',Validators.required],
     street: ['', Validators.required],
     city: ['',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
     state: ['', Validators.required],

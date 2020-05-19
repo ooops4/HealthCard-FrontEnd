@@ -75,13 +75,14 @@
 
 
              <!-- Owner Name-->
-          <div class="form-group">
-            <label for="owner_name">Owner Name</label>
-            <input type="text" class="form-control" minlength="2" maxlength="30"
-            formControlName="owner_name" [class.is-invalid]="registrationForm.get('owner_name').invalid && registrationForm.get('owner_name').touched" 
-            placeholder="Enter Doctor Name" >
-              <small [class.d-none]="registrationForm.get('owner_name').valid || registrationForm.get('owner_name').untouched" class="text-danger"> Owner Name is required </small>
-          </div>
+             <div class="form-group">
+              <label for="owner_name">Owner Name</label>
+              <input type="text" class="form-control" minlength="2" maxlength="30"
+              formControlName="owner_name" [class.is-invalid]="registrationForm.get('owner_name').invalid && registrationForm.get('owner_name').touched" 
+              placeholder="Enter Owner Name" >
+                <small [class.d-none]="registrationForm.get('owner_name').valid || registrationForm.get('owner_name').untouched" class="text-danger"> Owner Name is required </small>
+            </div>
+  
 
 
 

@@ -72,7 +72,7 @@ export class AuthenticationDoctorService {
   removeData() {
     localStorage.removeItem('token');
     localStorage.removeItem('_id');
-    localStorage.removeItem('name');
+    localStorage.removeItem('doctor_name');
   }
 
   public isLoggedIn(): boolean{

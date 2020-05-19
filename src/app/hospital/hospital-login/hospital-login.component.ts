@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {  AuthenticationHospitalService } from './authentication-hospital.service';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./hospital-login.component.css']
 })
 export class HospitalLoginComponent{
-
+  error : string;
   credentials = {
     email:'',
     password: ''
@@ -18,8 +18,13 @@ export class HospitalLoginComponent{
   login(){
     let user = {email: this.credentials.email, password: this.credentials.password}
     this.auth.login(user).subscribe(response => {
+      if(response.token){
       this.auth.loginData(response);
       this.router.navigate(['/hospital/dashboard'])
-    })
-  }
+    }
+    else {
+      this.error = response.result;
+    }
+  })
+}
 }

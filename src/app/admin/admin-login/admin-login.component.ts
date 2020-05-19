@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdminLoginComponent {
 
+  error: string;
   credentials: AdminTokenPayload = {
     _id: '',
     first_name: '',
@@ -22,12 +23,19 @@ export class AdminLoginComponent {
   }
   constructor(private auth: AuthenticationAdminService, private route:Router) { }
   login(){
-    this.auth.login(this.credentials).subscribe(
-    () => {
+    this.auth.login(this.credentials).subscribe(response =>{
+
+    if(response.token){
+      // this.auth.loginData(response);
       this.route.navigateByUrl('/admin/dashboard')
-    },
-    err =>
-      console.error(err)
-    )}}
+    }
+    else{
+      this.error = response.result;
+    }
+    // err =>
+      // console.error(err)
+  })
+}
+}
     
 

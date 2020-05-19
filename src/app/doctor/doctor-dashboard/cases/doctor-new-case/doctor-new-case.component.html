@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
       <div class="col-md-6 mt-5 mx-auto">
-        <form [formGroup]="NewCaseForm">
+        <form [formGroup]="NewCaseForm" (ngSubmit)="OnSubmit()">
           <h1 class="h3 mb-3 font-weight-normal">Add New Case</h1>    
            <hr>
           <h3 class="h4 mb-3 font-weight-normal">Case Information</h3>
@@ -9,17 +9,26 @@
           
           <!-- Disease Name -->
           <label for="disease_name"> Disease name</label>
-          <input formControlName="disease_name" class="form-control" type="text">
-          
+          <input formControlName="disease_name" class="form-control" placeholder="Enter disease name or case title" type="text">
+          <br>
 
           <!-- observation Summary -->
-          <label for="disease_name">Observation Summary</label>
-          <textarea formControlName="disease_name" class="form-control" rows="5"> </textarea>
+          <label for="disease_name">Observations</label>
+          <textarea formControlName="disease_name" class="form-control" rows="3"> </textarea>
+          <br>
 
+          <!-- Lab Test Required -->
+          <label> Lab Test Required</label>
+          <div *ngFor="let cartoon of cartoonsData">
+            <input type="checkbox"  class="checkbox-light" (change)="onChange(cartoon.name, $event.target.checked)" />
+            {{ cartoon.name }}
+          </div>
+        <br>
         </form>
 
         <label for="medicine_name">Medicine Name</label>
         <input type="text" class="form-control" [(ngModel)]="medicine_name">
+
         <label for="">Medicine Dosage</label>
         <input type="text" class="form-control" [(ngModel)]="medicine_dosage">
         <br>
@@ -48,7 +57,7 @@
 
     
 
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Add User</button>
+        <button type="button" (click)="OnSubmit()" class="btn btn-lg btn-primary btn-block">Add Case</button>
     </div>
   </div>
 </div>

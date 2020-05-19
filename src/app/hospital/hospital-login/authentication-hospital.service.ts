@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable, of } from 'rxjs'
+import { Observable } from 'rxjs'
 import { Router } from '@angular/router'
-
 
 export interface HospitalDetails {
   _id: string,
@@ -43,7 +42,7 @@ export class AuthenticationHospitalService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(user:{email:string, password: string}) {
-    return this.httpClient.post(`http://127.0.0.1:5000/api/hospital/login`, user);
+    return this.httpClient.post<any>(`http://127.0.0.1:5000/api/hospital/login`, user);
   }
 
   logout(){
@@ -73,7 +72,7 @@ export class AuthenticationHospitalService {
   removeData() {
     localStorage.removeItem('token');
     localStorage.removeItem('_id');
-    localStorage.removeItem('name');
+    localStorage.removeItem('hospital_name');
   }
 
   public isLoggedIn(): boolean{

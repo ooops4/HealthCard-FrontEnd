@@ -110,7 +110,7 @@ const routes: Routes = [
   // DOCTOR USER Department
   { path: 'doctor/login', component: DoctorLoginComponent},
   { path: 'doctor/dashboard', component: DoctorDashboardComponent,canActivate:[AuthGuardDoctorService]},  
-  { path: 'doctor/new-patient', component: DoctorNewCaseComponent},
+  // { path: 'doctor/new-patient', component: Hospo},
   { path: 'doctor/patient-details/:patientID', component: DoctorPatientDetailsComponent},
   { path: 'doctor/patient-details/new-case/:patientID', component: DoctorNewCaseComponent},
   { path: 'doctor/patient-details/view-cases/:patientID', component: DoctorViewCasesComponent},
