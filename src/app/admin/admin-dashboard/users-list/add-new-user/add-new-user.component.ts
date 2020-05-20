@@ -63,12 +63,12 @@ export class AddNewUserComponent {
     constructor(public fb:FormBuilder,private auth:AuthenticationAdminService,private router:Router) {}
 
     registrationForm = this.fb.group({
-      first_name: ['', [Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
-      last_name: ['', [Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       password: ['', [Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
-      father_name:['',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
-      mother_name:['',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]],
+      father_name:['', Validators.required],
+      mother_name:['', Validators.required],
       age:['',[Validators.required,Validators.min(0),Validators.max(110)]],
       contact_number:['',Validators.required],
       emergency_contact_number:['',Validators.required],

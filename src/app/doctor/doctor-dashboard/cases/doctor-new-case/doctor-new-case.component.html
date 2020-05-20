@@ -19,9 +19,9 @@
 
           <!-- Lab Test Required -->
           <label> Lab Test Required</label>
-          <div *ngFor="let cartoon of cartoonsData">
-            <input type="checkbox"  class="checkbox-light" (change)="onChange(cartoon.test_name, $event.target.checked)" />
-            {{ cartoon.test_name }}
+          <div *ngFor="let cartoon of cartoonsData; let i = index">
+            <input type="checkbox" (change)="onChange(i,$event)">
+            {{ cartoon }}
           </div>
         <br>
         </form>
@@ -44,16 +44,16 @@
             <th>Medicine</th>
             <th>Dosage</th>
             <th>Quantity</th>
-
+            <th>Delete</th>
             <!-- <th>isTaken</th> -->
             
           </tr>
           <tr *ngFor = "let medicine of NewCaseForm.get('medicines').value; let i = index">
           <!-- <tr *ngFor = "let medicine of NewCaseForm.get('medicines').value; let i = index"></tr> -->
             <td>{{ i+1 }}</td>
-            <td>{{medicine.name}}</td>
-            <td>{{medicine.dosage}}</td>
-            <!-- <td>{{medicine.isTaken}}</td> -->
+            <td>{{medicine.medicine_name}}</td>
+            <td>{{medicine.medicine_dosage}}</td>
+            <td>{{medicine.medicine_quantity}}</td>
             <td><button (click)="removeMedicine(i)" class="btn btn-danger">Delete</button></td>
           </tr>
         </table>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,13 +10,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DoctorNewCaseComponent implements OnInit{
 
+ patientID:string 
   // Cartoon:string
+
+
+  
+
   
   cartoonsData = [
-    { id: 0, test_name: 'Tom and Jerry' },
-    { id: 1, test_name: 'Rick and Morty' },
-    { id: 2, test_name: 'Ben 10' },
-    { id: 3, test_name: 'Batman: The Animated Series' }
+    'Blood Test',
+    'Urine Test',
+    'Prothrombin Time',
+    'CBC',
+    'Lipid Panel',
+    'Hemoglobin A1C',
+    'Stool Occult Test'
   ];
 
   // name = localStorage.getItem('name');
@@ -25,21 +33,32 @@ export class DoctorNewCaseComponent implements OnInit{
   medicine_quantity: number;
   NewCaseForm: FormGroup;
 
-    constructor(public fb:FormBuilder,private router:Router, private http:HttpClient) {}
-    onChange(test_required: string, isChecked: boolean) {
-      const cartoons = (this.NewCaseForm.controls.test_name as FormArray);
-  
-      if (isChecked) {
-        cartoons.push(new FormControl(test_required));
-      } else {
-        const index = cartoons.controls.findIndex(x => x.value === test_required);
-        cartoons.removeAt(index);
+    constructor(public fb:FormBuilder,private router:Router, private http:HttpClient,private activatedRoute:ActivatedRoute) {
+      //to get patientID from url for passing
+      this.activatedRoute.paramMap.subscribe((parameter: ParamMap) => {
+        if (parameter.has('patientID')) {
+          this.patientID = parameter.get('patientID');
+          console.log(this.patientID);
+        }
+      })
+     }
+
+    
+    onChange(i: number, event) {
+      let testcases = this.NewCaseForm.get('test_required') as FormArray
+      if(event.target.checked){
+        testcases.push(this.fb.control(this.cartoonsData[i]));
       }
+      else{
+        testcases.removeAt(i);
+      }
+      console.log(this.NewCaseForm.get('test_required').value);
     }
 
   ngOnInit() {
 
     this.NewCaseForm = this.fb.group({
+      disease_observation:[''],
       medicines : this.fb.array([]),
       test_required: this.fb.array([]),
       disease_name: ['',Validators.required]
@@ -70,7 +89,7 @@ export class DoctorNewCaseComponent implements OnInit{
     
      OnSubmit(){
        console.log(this.NewCaseForm.value)
-      this.http.post(`http://127.0.0.1:5000/api/add-cases`,this.NewCaseForm.value).subscribe(response => {
+      this.http.put(`http://127.0.0.1:5000/api/add-cases/${this.patientID }`,this.NewCaseForm.value).subscribe(response => {
         console.log(response);
       })
      }
