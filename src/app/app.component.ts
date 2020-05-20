@@ -13,6 +13,7 @@ import { AuthenticationClinicService } from './clinic/clinic-login/authenticatio
 })
 export class AppComponent {
   title = 'Health Card';
+  public isMenuCollapsed = true;
   
   constructor(public authUser: AuthenticationService, 
               public authAdmin : AuthenticationAdminService, 

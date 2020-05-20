@@ -54,6 +54,7 @@ import { ClinicCaseDetailsComponent } from './clinic/clinic-dashboard/cases/clin
 import { LaboratoryLoginComponent } from './laboratory/laboratory-login/laboratory-login.component';
 import { LaboratoryDashboardComponent } from './laboratory/laboratory-dashboard/laboratory-dashboard.component';
 import { AuthGuardLaboratoryService } from './laboratory/laboratory-login/auth-guard-laboratory.service';
+import { DoctorNewPatientComponent } from './doctor/doctor-dashboard/doctor-new-patient/doctor-new-patient.component';
 
 
 
@@ -89,11 +90,11 @@ const routes: Routes = [
   //ADMIN LABORATORY
   { path: 'admin/laboratory/laboratory-list', component: LaboratoryListComponent},
   { path: 'admin/laboratory/add-laboratory', component: AddLaboratoryComponent},
-  { path: 'admin/laboratory/details/:labortory_id', component: LaboratoryDetailsComponent},
+  { path: 'admin/laboratory/details/:laboratory_id', component: LaboratoryDetailsComponent},
 
   //ADMIN MEDICAL
   { path: 'admin/medical/medical-store-list', component: MedicalStoreListComponent},
-  { path: 'admin/medical/add-medical-store', component: AddMedicalStoreComponent},
+  { path: 'admin/medical/add-medical', component: AddMedicalStoreComponent},
   { path: 'admin/medical/details/:medical_id', component: MedicalStoreDetailsComponent},
 
   //ADMIN DOCTOR
@@ -110,7 +111,7 @@ const routes: Routes = [
   // DOCTOR USER Department
   { path: 'doctor/login', component: DoctorLoginComponent},
   { path: 'doctor/dashboard', component: DoctorDashboardComponent,canActivate:[AuthGuardDoctorService]},  
-  // { path: 'doctor/new-patient', component: Hospo},
+  { path: 'doctor/new-patient', component: DoctorNewPatientComponent},
   { path: 'doctor/patient-details/:patientID', component: DoctorPatientDetailsComponent},
   { path: 'doctor/patient-details/new-case/:patientID', component: DoctorNewCaseComponent},
   { path: 'doctor/patient-details/view-cases/:patientID', component: DoctorViewCasesComponent},

@@ -3,6 +3,7 @@ export interface PatientDetails{
     first_name:string
     last_name:string
     email:string
+    blood_group:string
     age: number | null
     city: string | null
     father_name: string

@@ -33,7 +33,7 @@ export interface UserDetails {
   iat: number
 }
 
-interface TokenResponse {
+interface UserTokenResponse {
   token: string
 }
 
@@ -47,20 +47,20 @@ export interface TokenPayload {
 
 @Injectable()
 export class AuthenticationService {
-  private token: string
+  private UserToken: string
 
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   private saveToken(token: string): void {
     localStorage.setItem('usertoken', token)
-    this.token = token
+    this.UserToken = token
   }
 
   private getToken(): string {
-    if (!this.token) {
-      this.token = localStorage.getItem('usertoken')
+    if (!this.UserToken) {
+      this.UserToken = localStorage.getItem('usertoken')
     }
-    return this.token
+    return this.UserToken
   }
 
   public getUserDetails(): UserDetails {
@@ -89,7 +89,7 @@ export class AuthenticationService {
     const base = this.httpClient.post(`http://127.0.0.1:5000/api/register`, user)
 
     const request = base.pipe(
-      map((data: TokenResponse) => {
+      map((data: UserTokenResponse) => {
         if (data.token) {
           this.saveToken(data.token)
         }
@@ -104,7 +104,7 @@ export class AuthenticationService {
     const base = this.httpClient.post(`http://127.0.0.1:5000/api/user/login`, user)
 
     const request = base.pipe(
-      map((data: TokenResponse) => {
+      map((data: UserTokenResponse) => {
         if (data.token) {
           this.saveToken(data.token)
         }
@@ -116,7 +116,7 @@ export class AuthenticationService {
   }
 
   public logout(): void {
-    this.token = ''
+    this.UserToken = ''
     window.localStorage.removeItem('usertoken')
     this.router.navigateByUrl('/')
   }

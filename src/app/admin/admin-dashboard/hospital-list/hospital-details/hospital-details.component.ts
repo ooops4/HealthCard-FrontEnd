@@ -30,7 +30,7 @@ export class HospitalDetailsComponent implements OnInit {
   }
 
   gethospitalDetails(){
-    this.httpClient.get<HospitalDetails>(`http://127.0.0.1:5000/api/hispital/${this.hospital_id}`).subscribe(response => {
+    this.httpClient.get<HospitalDetails>(`http://127.0.0.1:5000/api/hospital/${this.hospital_id}`).subscribe(response => {
       console.log(response);
       // console.log(this.userDetails)
       this.hospitalDetails = response;

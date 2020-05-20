@@ -5,8 +5,8 @@
       
     
         <tr>
-            <th>Clinic Name</th>
-            <td>{{laboratoryDetails.clinic_name}}</td>
+            <th>Laboratory Name</th>
+            <td>{{laboratoryDetails.laboratory_name}}</td>
         </tr>
 
         <tr>
@@ -17,31 +17,6 @@
         <tr>
             <th>Established Date</th>
             <td>{{laboratoryDetails.established_date | date}}</td>
-        </tr>
-
-        <tr>
-            <th>Doctor Name</th>
-            <td>{{laboratoryDetails.doctor_name}}</td>
-        </tr>
-          
-        <tr>
-            <th>Qualification</th>
-            <td>{{laboratoryDetails.qualification}}</td>
-        </tr>
-
-        <tr>
-            <th>Gender</th>
-            <td>{{laboratoryDetails.gender}}</td>
-        </tr>
-
-        <tr>
-            <th>Age</th>
-            <td>{{laboratoryDetails.age}}</td>
-        </tr>
-
-        <tr>
-            <th>Date of Birth</th>
-            <td>{{laboratoryDetails.dob | date}}</td>
         </tr>
 
         <tr>
@@ -79,6 +54,7 @@
             <td>{{laboratoryDetails.landmark}}</td>
         </tr>
    
+        <a [href]="laboratoryDetails.laboratory_document" target="_blank">View Document PDF</a>
       
    
     </table>

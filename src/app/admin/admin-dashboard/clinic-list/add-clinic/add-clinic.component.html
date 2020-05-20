@@ -258,7 +258,7 @@
                     <label for="clinic_document" class="custom-file-label">Clinic Document </label>
                     <input type="file" class="custom-file-input"
                       [class.is-invalid]="registrationForm.get('clinic_document').invalid &&
-                    registrationForm.get('clinic_document').touched" (change)="selectFile($event)" accept=".pdf, .doc, .docx"> 
+                    registrationForm.get('clinic_document').touched" (change)="selectFile($event)" accept=".pdf"> 
 
                     <small [class.d-none]="registrationForm.get('clinic_document').valid ||
                     registrationForm.get('clinic_document').untouched"
@@ -266,7 +266,7 @@
               </div>
             </div>
 
-          <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!registrationForm.valid">Add User</button>
+          <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!registrationForm.valid">Add Clinic</button>
         </form>
       </div>
     </div>

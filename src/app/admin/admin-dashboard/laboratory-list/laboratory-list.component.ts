@@ -17,7 +17,7 @@ export class LaboratoryListComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.httpClient.get('http://127.0.0.1:5000/api/laboratory/users').subscribe(users => (this.laboratories = users as string))
+    this.httpClient.get('http://127.0.0.1:5000/api/laboratory/laboratory-list').subscribe(users => (this.laboratories = users as string))
     console.log(this.laboratories)
   }
 

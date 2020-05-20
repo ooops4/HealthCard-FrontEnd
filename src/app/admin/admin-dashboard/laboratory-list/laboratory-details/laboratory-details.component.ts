@@ -14,8 +14,8 @@ export class LaboratoryDetailsComponent implements OnInit {
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
     this.route.paramMap.subscribe((parameter: ParamMap) => {
-      if (parameter.has('doctor_id')) {
-        this.laboratory_id = parameter.get('doctor_id');
+      if (parameter.has('laboratory_id')) {
+        this.laboratory_id = parameter.get('laboratory_id');
         console.log(this.laboratory_id);
       }
     })

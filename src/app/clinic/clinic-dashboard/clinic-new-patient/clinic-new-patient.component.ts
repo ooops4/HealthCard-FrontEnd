@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-patient',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clinic-new-patient.component.css']
 })
 export class ClinicNewPatientComponent implements OnInit {
+  patientID:'';
 
-  constructor() { }
+  constructor( private router:Router) { }
+
+  FindPatient(){
+    this.router.navigateByUrl('/clinic/new-patient')
+  }
+
 
   ngOnInit(): void {
   }

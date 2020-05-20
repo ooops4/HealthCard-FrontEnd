@@ -39,14 +39,14 @@ export class ClinicDetailsComponent implements OnInit {
     console.log(this.clinicDetails);
   }
 
-  textLayerRendered(e: CustomEvent) {
-    let externalLinks: HTMLCollectionOf<HTMLAnchorElement>;
-    const pdfReport = document.getElementById('pdf-report-id');
+  // textLayerRendered(e: CustomEvent) {
+  //   let externalLinks: HTMLCollectionOf<HTMLAnchorElement>;
+  //   const pdfReport = document.getElementById('pdf-report-id');
 
-    if (pdfReport) {
-      externalLinks = pdfReport.getElementsByTagName('a');
-    }
-    for (let i = 0; i < externalLinks.length; i++) { externalLinks[i].setAttribute('target', '_blank'); }
-  }
+  //   if (pdfReport) {
+  //     externalLinks = pdfReport.getElementsByTagName('a');
+  //   }
+  //   for (let i = 0; i < externalLinks.length; i++) { externalLinks[i].setAttribute('target', '_blank'); }
+  // }
 
 }

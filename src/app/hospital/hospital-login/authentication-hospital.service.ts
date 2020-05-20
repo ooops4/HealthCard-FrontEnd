@@ -5,30 +5,37 @@ import { Router } from '@angular/router'
 
 export interface HospitalDetails {
   _id: string,
-  first_name: string,
-  last_name: string,
+  hospital_name:string,
   email: string,
-  age:number,
-  father_name:string,
-  gender:string,
-  mother_name:string,
+  password: string,
+  license_number:string,
+  established_date:Date,
   contact_number:number,
   emergency_contact_number:number,
-  qualification:string,
+  owner_name:string,
+  steet:string
+  city:string
+  state:string
+  pincode:number
+  landmark:string
+  hospital_document:File
 }
 export interface AddHospital {
   _id: string,
-  first_name: string,
-  last_name: string,
-  password: string,
+  hospital_name:string,
   email: string,
-  age:number,
-  father_name:string,
-  gender:string,
-  mother_name:string,
+  password: string,
+  license_number:string,
+  established_date:Date,
   contact_number:number,
   emergency_contact_number:number,
-  qualification:string,
+  owner_name:string,
+  steet:string
+  city:string
+  state:string
+  pincode:number
+  landmark:string
+  hospital_document:File
 }
 interface loginData {
   _id: string,
@@ -84,7 +91,12 @@ export class AuthenticationHospitalService {
   }
 
     public AddHospital(hospital: HospitalDetails): Observable<any> {
-      return this.httpClient.post(`http://127.0.0.1:5000/api/hospital/register`, hospital)
+      const formData = new FormData;
+      for (const [key, value] of Object.entries(hospital)) {
+        formData.append(key, value);
+      }
+      console.log(formData);
+      return this.httpClient.post(`http://127.0.0.1:5000/api/hospital/register`, formData)
   }
 
  

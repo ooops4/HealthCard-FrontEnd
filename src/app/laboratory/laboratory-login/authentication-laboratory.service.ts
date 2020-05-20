@@ -17,6 +17,8 @@ export interface LaboratoryDetails {
   owner_name:string,
   contact_number:number,
   emergency_contact_number:number
+  laboratory_document:File
+  established_date:Date
 }
 export interface AddLaboratory {
   _id: string,
@@ -28,9 +30,14 @@ export interface AddLaboratory {
   landmark:string,
   pincode:number,
   email: string,
+  password:string
   owner_name:string,
   contact_number:number,
   emergency_contact_number:number
+  laboratory_document:File
+  established_date:Date
+
+
 }
 interface loginData {
   _id: string,
@@ -84,8 +91,13 @@ export class AuthenticationLaboratoryService {
     return true;
   }
 
-    public AddUser(user: LaboratoryDetails): Observable<any> {
-      return this.httpClient.post(`http://127.0.0.1:5000/api/laboratory/register`, user)
+    public AddLaboratory(laboratory: LaboratoryDetails): Observable<any> {
+      const formData = new FormData;
+    for (const [key, value] of Object.entries(laboratory)) {
+      formData.append(key, value);
+    }
+    console.log(formData);
+      return this.httpClient.post(`http://127.0.0.1:5000/api/laboratory/register`, formData)
   }
 
  

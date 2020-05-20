@@ -13,15 +13,15 @@
           <br>
 
           <!-- observation Summary -->
-          <label for="disease_name">Observations</label>
-          <textarea formControlName="disease_name" class="form-control" rows="3"> </textarea>
+          <label for="disease_observation">Observations</label>
+          <textarea formControlName="disease_observation" class="form-control" rows="3"> </textarea>
           <br>
 
           <!-- Lab Test Required -->
           <label> Lab Test Required</label>
           <div *ngFor="let cartoon of cartoonsData">
-            <input type="checkbox"  class="checkbox-light" (change)="onChange(cartoon.name, $event.target.checked)" />
-            {{ cartoon.name }}
+            <input type="checkbox"  class="checkbox-light" (change)="onChange(cartoon.test_name, $event.target.checked)" />
+            {{ cartoon.test_name }}
           </div>
         <br>
         </form>
@@ -31,15 +31,20 @@
 
         <label for="">Medicine Dosage</label>
         <input type="text" class="form-control" [(ngModel)]="medicine_dosage">
+
+        <label for="">Medicine Quantity</label>
+        <input type="text" class="form-control" [(ngModel)]="medicine_quantity">
         <br>
         <button (click)="addMedicine()" class="btn btn-success">Add Medicine</button>
         
-        <h2>Medicines</h2>
+        <h2>Medicines List</h2>
         <table class="table bg-white text-dark">
           <tr>
             <th>Sr No.</th>
             <th>Medicine</th>
             <th>Dosage</th>
+            <th>Quantity</th>
+
             <!-- <th>isTaken</th> -->
             
           </tr>

@@ -12,12 +12,10 @@ export class ClinicDashboardComponent implements OnInit {
   constructor(private router:Router) { }
 
   
-  NewPatient(){
+  FindPatient(){
     this.router.navigateByUrl('/clinic/new-patient')
   }
-    PatientList(){
-      this.router.navigateByUrl('/clinic/patient-list')
-    }
+  
   ngOnInit(): void {
   }
 

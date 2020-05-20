@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable, of } from 'rxjs'
 import { Router } from '@angular/router'
-import { MedicalStoreDetailsComponent } from 'src/app/admin/admin-dashboard/medical-store-list/medical-store-details/medical-store-details.component';
 
 
 export interface MedicalDetails {
   _id: string,
-  laboratory_name: string,
+  medical_name: string,
   license_number : string,
   street:string,
   city:string,
@@ -18,10 +17,12 @@ export interface MedicalDetails {
   owner_name:string,
   contact_number:number,
   emergency_contact_number:number
+  established_date:Date
+  medical_document:File
 }
 export interface AddMedical {
   _id: string,
-  laboratory_name: string,
+  medical_name: string,
   license_number : string,
   street:string,
   city:string,
@@ -29,9 +30,13 @@ export interface AddMedical {
   landmark:string,
   pincode:number,
   email: string,
+  password:string
   owner_name:string,
   contact_number:number,
   emergency_contact_number:number
+  established_date:Date
+  medical_document:File
+
 }
 interface loginData {
   _id: string,
@@ -74,7 +79,7 @@ export class AuthenticationMedicalStoreService {
   removeData() {
     localStorage.removeItem('token');
     localStorage.removeItem('_id');
-    localStorage.removeItem('laboratory_name');
+    localStorage.removeItem('medical_name');
   }
 
   public isLoggedIn(): boolean{
@@ -86,7 +91,12 @@ export class AuthenticationMedicalStoreService {
   }
 
     public AddMedical(medical: MedicalDetails): Observable<any> {
-      return this.httpClient.post(`http://127.0.0.1:5000/api/medical/register`, medical)
+      const formData = new FormData;
+    for (const [key, value] of Object.entries(medical)) {
+      formData.append(key, value);
+    }
+    console.log(formData);
+      return this.httpClient.post(`http://127.0.0.1:5000/api/medical/register`, formData)
   }
 
  

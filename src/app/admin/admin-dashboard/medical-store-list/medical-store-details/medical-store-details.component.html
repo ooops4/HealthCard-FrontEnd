@@ -5,8 +5,8 @@
       
     
         <tr>
-            <th>Clinic Name</th>
-            <td>{{medicalDetails.clinic_name}}</td>
+            <th>Medical Name</th>
+            <td>{{medicalDetails.medical_name}}</td>
         </tr>
 
         <tr>
@@ -15,33 +15,13 @@
         </tr>
 
         <tr>
+            <th>Owner Name</th>
+            <td>{{medicalDetails.owner_name}}</td>
+        </tr>
+
+        <tr>
             <th>Established Date</th>
             <td>{{medicalDetails.established_date | date}}</td>
-        </tr>
-
-        <tr>
-            <th>Doctor Name</th>
-            <td>{{medicalDetails.doctor_name}}</td>
-        </tr>
-          
-        <tr>
-            <th>Qualification</th>
-            <td>{{medicalDetails.qualification}}</td>
-        </tr>
-
-        <tr>
-            <th>Gender</th>
-            <td>{{medicalDetails.gender}}</td>
-        </tr>
-
-        <tr>
-            <th>Age</th>
-            <td>{{medicalDetails.age}}</td>
-        </tr>
-
-        <tr>
-            <th>Date of Birth</th>
-            <td>{{medicalDetails.dob | date}}</td>
         </tr>
 
         <tr>
@@ -80,7 +60,7 @@
         </tr>
    
       
-   
+        <a [href]="medicalDetails.medical_document" target="_blank">View Document PDF</a>
     </table>
 
 

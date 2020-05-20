@@ -5,8 +5,8 @@
       
     
         <tr>
-            <th>Clinic Name</th>
-            <td>{{hospitalDetails.clinic_name}}</td>
+            <th>Hospital Name</th>
+            <td>{{hospitalDetails.hospital_name}}</td>
         </tr>
 
         <tr>
@@ -20,28 +20,8 @@
         </tr>
 
         <tr>
-            <th>Doctor Name</th>
-            <td>{{hospitalDetails.doctor_name}}</td>
-        </tr>
-          
-        <tr>
-            <th>Qualification</th>
-            <td>{{hospitalDetails.qualification}}</td>
-        </tr>
-
-        <tr>
-            <th>Gender</th>
-            <td>{{hospitalDetails.gender}}</td>
-        </tr>
-
-        <tr>
-            <th>Age</th>
-            <td>{{hospitalDetails.age}}</td>
-        </tr>
-
-        <tr>
-            <th>Date of Birth</th>
-            <td>{{hospitalDetails.dob | date}}</td>
+            <th>Owner Name</th>
+            <td>{{hospitalDetails.owner_name}}</td>
         </tr>
 
         <tr>
@@ -78,7 +58,8 @@
             <th>Landmark</th>
             <td>{{hospitalDetails.landmark}}</td>
         </tr>
-   
+
+        <a [href]="hospitalDetails.hospital_document" target="_blank">View Document PDF</a>
       
    
     </table>

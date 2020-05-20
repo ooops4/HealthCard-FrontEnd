@@ -41,11 +41,11 @@ export class HospitalPatientDetailsComponent implements OnInit {
 
   
   NewCase(){
-    this.route.navigateByUrl(`hospital/patient-details/${this.patientID}/new-case`)
+    this.route.navigateByUrl(`hospital/patient-details/new-case/${this.patientID}`)
   }
 
   ViewCases(){
-    this.route.navigateByUrl(`hospital/patient-details/${this.patientID}/view-cases`)
+    this.route.navigateByUrl(`hospital/patient-details/view-cases/${this.patientID}`)
   }
 
 }

@@ -10,7 +10,7 @@ export class HospitalDashboardComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  NewPatient(){
+  FindPatient(){
     this.router.navigateByUrl('/hospital/new-patient')
   }
   ngOnInit(): void {

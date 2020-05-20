@@ -17,13 +17,13 @@ export class MedicalStoreListComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.httpClient.get('http://127.0.0.1:5000/api/medicalstore/users').subscribe(users => (this.medicalstores = users as string))
+    this.httpClient.get('http://127.0.0.1:5000/api/medical/list').subscribe(users => (this.medicalstores = users as string))
     console.log(this.medicalstores)
   }
 
 
   
   NewMedicalStore(){
-    this.route.navigateByUrl('/admin/medical/add-medical-store')
+    this.route.navigateByUrl('/admin/medical/add-medical')
   }
 }

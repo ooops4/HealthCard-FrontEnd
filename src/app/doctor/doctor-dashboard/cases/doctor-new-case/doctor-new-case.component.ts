@@ -13,25 +13,26 @@ export class DoctorNewCaseComponent implements OnInit{
   // Cartoon:string
   
   cartoonsData = [
-    { id: 0, name: 'Tom and Jerry' },
-    { id: 1, name: 'Rick and Morty' },
-    { id: 2, name: 'Ben 10' },
-    { id: 3, name: 'Batman: The Animated Series' }
+    { id: 0, test_name: 'Tom and Jerry' },
+    { id: 1, test_name: 'Rick and Morty' },
+    { id: 2, test_name: 'Ben 10' },
+    { id: 3, test_name: 'Batman: The Animated Series' }
   ];
 
-  name = localStorage.getItem('name');
+  // name = localStorage.getItem('name');
   medicine_name: string;
   medicine_dosage: number;
+  medicine_quantity: number;
   NewCaseForm: FormGroup;
 
     constructor(public fb:FormBuilder,private router:Router, private http:HttpClient) {}
-    onChange(name: string, isChecked: boolean) {
-      const cartoons = (this.NewCaseForm.controls.name as FormArray);
+    onChange(test_required: string, isChecked: boolean) {
+      const cartoons = (this.NewCaseForm.controls.test_name as FormArray);
   
       if (isChecked) {
-        cartoons.push(new FormControl(name));
+        cartoons.push(new FormControl(test_required));
       } else {
-        const index = cartoons.controls.findIndex(x => x.value === name);
+        const index = cartoons.controls.findIndex(x => x.value === test_required);
         cartoons.removeAt(index);
       }
     }
@@ -40,7 +41,7 @@ export class DoctorNewCaseComponent implements OnInit{
 
     this.NewCaseForm = this.fb.group({
       medicines : this.fb.array([]),
-      name: this.fb.array([]),
+      test_required: this.fb.array([]),
       disease_name: ['',Validators.required]
      });
     }
@@ -49,6 +50,7 @@ export class DoctorNewCaseComponent implements OnInit{
        const medicine = {
          medicine_name: this.medicine_name,
          medicine_dosage: this.medicine_dosage,
+         medicine_quantity: this.medicine_quantity,
          isTaken: false
         }
        let getMedicine = this.NewCaseForm.get('medicines') as FormArray
@@ -56,6 +58,7 @@ export class DoctorNewCaseComponent implements OnInit{
        this.NewCaseForm.updateValueAndValidity();
        this.medicine_name = null;
        this.medicine_dosage = null;
+       this.medicine_quantity = null;
        console.log(this.NewCaseForm.value)
      }
      

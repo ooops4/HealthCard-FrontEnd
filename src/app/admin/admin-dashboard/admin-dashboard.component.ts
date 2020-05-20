@@ -50,6 +50,10 @@ export class AdminDashboardComponent implements OnInit {
     this.router.navigateByUrl('/admin/medical/medical-store-list')
     
   }
+  LaboratoryList(){
+    this.router.navigateByUrl('/admin/laboratory/laboratory-list')
+    
+  }
 
  
 }

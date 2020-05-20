@@ -52,7 +52,6 @@ import { ClinicDetailsComponent } from './admin/admin-dashboard/clinic-list/clin
 import { AuthGuardClinicService } from './clinic/clinic-login/auth-guard-clinic.service';
 import { AuthenticationClinicService } from './clinic/clinic-login/authentication-clinic.service';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DoctorDetailsComponent } from './admin/admin-dashboard/doctors-list/doctor-details/doctor-details.component';
 import { HospitalDetailsComponent } from './admin/admin-dashboard/hospital-list/hospital-details/hospital-details.component';
 import { LaboratoryDetailsComponent } from './admin/admin-dashboard/laboratory-list/laboratory-details/laboratory-details.component';
@@ -71,6 +70,8 @@ import { AuthenticationLaboratoryService } from './laboratory/laboratory-login/a
 import { AuthGuardMedicalStoreService } from './medicalstore/medicalstore-login/auth-guard-medicalstoreservice';
 import { AuthenticationMedicalStoreService } from './medicalstore/medicalstore-login/authentication-medicalstore.service';
 import { HospitalCaseDetailsComponent } from './hospital/hospital-dashboard/cases/hospital-case-details/hospital-case-details.component';
+import { DoctorNewPatientComponent } from './doctor/doctor-dashboard/doctor-new-patient/doctor-new-patient.component';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -129,6 +130,7 @@ import { HospitalCaseDetailsComponent } from './hospital/hospital-dashboard/case
     DoctorViewCasesComponent,
     DoctorPatientDetailsComponent,
     HospitalCaseDetailsComponent,
+    DoctorNewPatientComponent
 
 
 
@@ -143,7 +145,8 @@ import { HospitalCaseDetailsComponent } from './hospital/hospital-dashboard/case
     BrowserAnimationsModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
-    PdfViewerModule
+    PdfViewerModule,
+
     
    
   ],

@@ -89,7 +89,7 @@ export class AuthenticationClinicService {
   removeData() {
     localStorage.removeItem('token');
     localStorage.removeItem('_id');
-    localStorage.removeItem('name');
+    localStorage.removeItem('clinic_name');
   }
 
   public isLoggedIn(): boolean{

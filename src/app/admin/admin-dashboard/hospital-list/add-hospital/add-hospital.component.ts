@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { AuthenticationHospitalService, AddHospital } from 'src/app/hospital/hospital-login/authentication-hospital.service';
+import { AuthenticationHospitalService, HospitalDetails, AddHospital } from 'src/app/hospital/hospital-login/authentication-hospital.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -66,13 +66,13 @@ export class AddHospitalComponent {
 
 
    DateValidator(control: AbstractControl): {[key:string]:boolean} | null {
-    const dob = control;
-    if (dob.pristine) {
+    const established_date = control;
+    if (established_date.pristine) {
       return null;
     }
-    const dobValue = new Date(dob.value)
-    if( dobValue > new Date()){
-      dob.setValue(null);
+    const current_date = new Date(established_date.value)
+    if( current_date > new Date()){
+      established_date.setValue(null);
       return {'greaterDate': true}
     }
     else{
